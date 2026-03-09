@@ -284,14 +284,22 @@
 
     .proj-thumb-inner {
       position: absolute; inset: 0;
+      overflow: hidden;
       transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94);
     }
-    .project-row:hover .proj-thumb-inner { transform: scale(1.05); }
+    .project-row:hover .proj-thumb-inner { transform: scale(1.04); }
 
     .proj-thumb-inner img {
       width: 100%; height: 100%;
       object-fit: cover;
+      object-position: center;
       display: block;
+      filter: sepia(25%) contrast(1.05) brightness(0.85);
+      transition: filter 0.4s ease, opacity 0.4s ease;
+    }
+
+    .project-row:hover .proj-thumb-inner img {
+      filter: sepia(15%) contrast(1.1) brightness(0.95);
     }
 
     .proj-body {
@@ -1360,8 +1368,8 @@
 
       <div class="project-row" data-type="dataviz">
         <div class="proj-thumb">
-          <div class="proj-thumb-inner" style="background:#0d2b1f;">
-            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/8/102/76" alt="" style="opacity:0.65;">
+          <div class="proj-thumb-inner" style="background:#1a120a;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/AMH-5135-NA_Map_of_the_Indies_archipelago.jpg/800px-AMH-5135-NA_Map_of_the_Indies_archipelago.jpg" alt="17th century Dutch map of the Indies archipelago" style="opacity:0.55; mix-blend-mode:luminosity;">
           </div>
         </div>
         <div class="proj-body">
@@ -1382,8 +1390,8 @@
 
       <div class="project-row" data-type="dataviz">
         <div class="proj-thumb">
-          <div class="proj-thumb-inner" style="background:#0e1f33;">
-            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/8/99/72" alt="" style="opacity:0.55;">
+          <div class="proj-thumb-inner" style="background:#0c1520;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/1864_Mitchell_Map_of_Washington_D.C._-_Geographicus_-_WashingtonDC-mitchell-1864.jpg/800px-1864_Mitchell_Map_of_Washington_D.C._-_Geographicus_-_WashingtonDC-mitchell-1864.jpg" alt="1864 Mitchell Map of Washington DC" style="opacity:0.5; mix-blend-mode:luminosity;">
           </div>
         </div>
         <div class="proj-body">
@@ -1404,8 +1412,8 @@
 
       <div class="project-row" data-type="static">
         <div class="proj-thumb">
-          <div class="proj-thumb-inner" style="background:#1a1228;">
-            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/9/195/150" alt="" style="opacity:0.4;">
+          <div class="proj-thumb-inner" style="background:#101820;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/East_Indies_-_btv1b53209798t_%281_of_2%29.jpg/800px-East_Indies_-_btv1b53209798t_%281_of_2%29.jpg" alt="Vintage East Indies topographic chart" style="opacity:0.5; mix-blend-mode:luminosity;">
           </div>
         </div>
         <div class="proj-body">
@@ -1426,8 +1434,8 @@
 
       <div class="project-row" data-type="storymap">
         <div class="proj-thumb">
-          <div class="proj-thumb-inner" style="background:#2a1206;">
-            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/10/392/305" alt="" style="opacity:0.5;">
+          <div class="proj-thumb-inner" style="background:#120a0a;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/1878_Mitchell_Map_of_Maryland%2C_Delaware%2C_and_New_Jersey_-_Geographicus_-_MDDEandNJ-mitchell-1878.jpg/800px-1878_Mitchell_Map_of_Maryland%2C_Delaware%2C_and_New_Jersey_-_Geographicus_-_MDDEandNJ-mitchell-1878.jpg" alt="1878 Mitchell Map of Maryland" style="opacity:0.5; mix-blend-mode:luminosity;">
           </div>
         </div>
         <div class="proj-body">
@@ -1448,8 +1456,8 @@
 
       <div class="project-row" data-type="interactive">
         <div class="proj-thumb">
-          <div class="proj-thumb-inner" style="background:#041826;">
-            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/8/97/60" alt="" style="opacity:0.55;">
+          <div class="proj-thumb-inner" style="background:#0a0e18;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/NIE_1905_Washington_%28District_of_Columbia%29_-_map.jpg/800px-NIE_1905_Washington_%28District_of_Columbia%29_-_map.jpg" alt="1905 map of Washington DC area" style="opacity:0.5; mix-blend-mode:luminosity;">
           </div>
         </div>
         <div class="proj-body">
@@ -1470,8 +1478,8 @@
 
       <div class="project-row" data-type="dataviz">
         <div class="proj-thumb">
-          <div class="proj-thumb-inner" style="background:#0e2210;">
-            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/7/60/36" alt="" style="opacity:0.6;">
+          <div class="proj-thumb-inner" style="background:#0a1410;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/US-MAPS%281891%29_p470_-_MAP_OF_MARYLAND%2C_DELAWARE_AND_DISTRICT_OF_COLUMBIA.jpg/800px-US-MAPS%281891%29_p470_-_MAP_OF_MARYLAND%2C_DELAWARE_AND_DISTRICT_OF_COLUMBIA.jpg" alt="1891 Map of Maryland, Delaware and DC" style="opacity:0.5; mix-blend-mode:luminosity;">
           </div>
         </div>
         <div class="proj-body">
