@@ -92,14 +92,6 @@
         radial-gradient(ellipse at 50% 50%, rgba(5,15,8,1) 0%, transparent 100%);
     }
 
-    /* Satellite image loads on top of gradient fallback if available */
-    #hero.img-loaded {
-      background-image:
-        url('https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/export?bbox=-76.75,39.18,-76.52,39.38&bboxSR=4326&size=1600,1200&imageSR=4326&format=jpg&f=image');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
 
     #hero::after {
       content: '';
@@ -1005,7 +997,7 @@
       <div class="scroll-line"></div>
       Scroll to explore
     </div>
-    <div class="hero-coords">39.2°N &nbsp;76.6°W &nbsp;·&nbsp; Baltimore, Maryland &nbsp;·&nbsp; ESRI World Imagery</div>
+    <div class="hero-coords">39.2°N &nbsp;76.6°W &nbsp;·&nbsp; Baltimore, Maryland</div>
   </div>
 </section>
 
@@ -1543,18 +1535,10 @@
 
 <footer>
   <p>© 2025 Zoë Maymon</p>
-  <p>Satellite imagery: ESRI World Imagery (open tiles) &nbsp;·&nbsp; Built for GitHub Pages</p>
+  <p>Built for GitHub Pages</p>
 </footer>
 
 <script>
-  // Satellite hero image — load progressively, fallback to gradient if unavailable
-  (function() {
-    const hero = document.getElementById('hero');
-    const img = new Image();
-    img.onload = function() { hero.classList.add('img-loaded'); };
-    img.src = 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/export?bbox=-76.75,39.18,-76.52,39.38&bboxSR=4326&size=1600,1200&imageSR=4326&format=jpg&f=image';
-  })();
-
   // Nav scroll state
   const nav = document.getElementById('main-nav');
   window.addEventListener('scroll', () => {
