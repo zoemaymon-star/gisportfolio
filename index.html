@@ -92,10 +92,7 @@
 
     .tile-grid {
       position: absolute;
-      inset: -2px;
-      display: grid;
-      grid-template-columns: repeat(4, 25.5%);
-      grid-template-rows: repeat(3, 33.5%);
+      inset: 0;
     }
 
     .tile-grid img {
@@ -531,19 +528,8 @@
 <section id="hero">
   <div class="hero-sat">
     <div class="tile-grid">
-      <!-- ESRI World Imagery open tiles — Chesapeake Bay, z=6 -->
-      <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/23/18" alt="">
-      <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/23/19" alt="">
-      <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/23/20" alt="">
-      <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/23/21" alt="">
-      <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/24/18" alt="">
-      <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/24/19" alt="">
-      <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/24/20" alt="">
-      <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/24/21" alt="">
-      <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/25/18" alt="">
-      <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/25/19" alt="">
-      <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/25/20" alt="">
-      <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/25/21" alt="">
+      <!-- ESRI World Imagery — Baltimore, z=10 -->
+      <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/10/391/303" alt="" style="width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) brightness(0.48);">
     </div>
   </div>
 
@@ -558,7 +544,7 @@
       <div class="scroll-line"></div>
       Scroll to explore
     </div>
-    <div class="hero-coords">38.5°N &nbsp;76.4°W &nbsp;·&nbsp; Chesapeake Bay, Maryland &nbsp;·&nbsp; ESRI World Imagery</div>
+    <div class="hero-coords">39.2°N &nbsp;76.6°W &nbsp;·&nbsp; Baltimore, Maryland &nbsp;·&nbsp; ESRI World Imagery</div>
   </div>
 </section>
 
