@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Zoë Maymon — GIS & Spatial Analysis</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
-  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet">
+  <title>Zoë Maymon, GIS & Spatial Analysis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #f0ede6;
@@ -21,9 +20,9 @@
     body {
       background: var(--bg);
       color: var(--ink);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      line-height: 1.6;
+      font-family: 'Lora', serif;
+      font-weight: 400;
+      line-height: 1.7;
       overflow-x: hidden;
     }
 
@@ -45,7 +44,7 @@
     }
 
     .nav-name {
-      font-family: 'Clash Display', sans-serif;
+      font-family: 'Lora', serif;
       font-size: 0.95rem;
       font-weight: 600;
       color: white;
@@ -86,7 +85,7 @@
       justify-content: flex-end;
       padding: 0 2.5rem 3.5rem;
       overflow: hidden;
-      /* USGS National Map public domain satellite imagery — Baltimore, MD */
+      /* USGS National Map public domain satellite imagery, Baltimore, MD */
       background-image: url('https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/export?bbox=-76.75,39.18,-76.52,39.38&bboxSR=4326&size=1600,1200&imageSR=4326&format=jpg&f=image');
       background-size: cover;
       background-position: center;
@@ -120,23 +119,24 @@
     }
 
     .hero-h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.8rem, 6.5vw, 5.8rem);
-      font-weight: 400;
-      line-height: 1.05;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3rem, 7vw, 6.5rem);
+      font-weight: 700;
+      font-style: normal;
+      line-height: 1.0;
       color: #fff;
-      letter-spacing: -0.025em;
+      letter-spacing: -0.035em;
     }
 
     .hero-h1 em {
-      font-style: italic;
-      color: rgba(255,255,255,0.45);
+      font-style: normal;
+      color: rgba(255,255,255,0.38);
     }
 
     .hero-sub {
       margin-top: 1.5rem;
       font-size: 1rem;
-      font-weight: 300;
+      font-weight: 400;
       color: rgba(255,255,255,0.55);
       max-width: 460px;
       line-height: 1.8;
@@ -202,13 +202,14 @@
     }
 
     .intro-text {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.35rem, 2.4vw, 1.95rem);
+      font-family: 'Lora', serif;
+      font-size: clamp(1.45rem, 2.6vw, 2.1rem);
       font-weight: 400;
-      line-height: 1.6;
+      font-style: italic;
+      line-height: 1.65;
       color: rgba(255,255,255,0.85);
     }
-    .intro-text span { color: rgba(255,255,255,0.35); }
+    .intro-text span { color: rgba(255,255,255,0.35); font-style: normal; }
 
     /* ── WORK ── */
     #work { padding: 5rem 2.5rem; }
@@ -221,10 +222,10 @@
     }
 
     .work-title {
-      font-family: 'Clash Display', sans-serif;
-      font-size: clamp(1.5rem, 2.8vw, 2.2rem);
-      font-weight: 600;
-      letter-spacing: -0.02em;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
     }
 
     .work-count {
@@ -252,12 +253,12 @@
       color: var(--muted);
       cursor: pointer;
       transition: color 0.15s, border-color 0.15s;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Lora', serif;
     }
     .ftab:hover { color: var(--ink); }
     .ftab.on { color: var(--ink); border-bottom-color: var(--ink); font-weight: 500; }
 
-    /* Project rows — alternating layout */
+    /* Project rows, alternating layout */
     .project-list { display: flex; flex-direction: column; }
 
     .project-row {
@@ -310,9 +311,9 @@
     }
 
     .proj-title {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(1.15rem, 1.8vw, 1.6rem);
-      font-weight: 400;
+      font-weight: 700;
       line-height: 1.22;
       letter-spacing: -0.01em;
       margin-bottom: 0.9rem;
@@ -320,7 +321,7 @@
 
     .proj-desc {
       font-size: 0.875rem;
-      font-weight: 300;
+      font-weight: 400;
       line-height: 1.8;
       color: var(--muted);
       max-width: 420px;
@@ -360,7 +361,223 @@
     .project-row:hover .proj-link { opacity: 1; transform: none; }
     .proj-link:hover { color: var(--accent); }
 
-    /* ── ABOUT ── */
+    /* ── PORTFOLIO BLOCKS ── */
+    #portfolio { padding: 0; }
+
+    .portfolio-block {
+      padding: 5rem 2.5rem;
+      background: var(--bg);
+    }
+
+    .personal-block {
+      background: white;
+      border-top: 1px solid var(--rule);
+    }
+
+    .portfolio-block-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: -1.5rem;
+      margin-bottom: 3rem;
+      font-style: italic;
+    }
+
+    /* ── PERSONAL PROJECT CARDS ── */
+    .personal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .personal-card {
+      border: 1px solid var(--rule);
+      padding: 1.75rem;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .personal-card:hover { border-color: var(--accent); }
+
+    .personal-card.placeholder {
+      border-style: dashed;
+      background: transparent;
+    }
+
+    .pc-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--rule);
+      margin-bottom: 0.25rem;
+    }
+
+    .pc-status {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .pc-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+
+    .placeholder .pc-title { color: var(--muted); }
+
+    .pc-desc {
+      font-size: 0.8rem;
+      color: #888;
+      line-height: 1.7;
+      flex: 1;
+      font-style: italic;
+    }
+
+    .pc-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.5rem; }
+
+    .placeholder .ptag {
+      background: transparent;
+      border-color: var(--rule);
+      color: var(--rule);
+    }
+
+    @media (max-width: 900px) {
+      .personal-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 540px) {
+      .personal-grid { grid-template-columns: 1fr; }
+      .portfolio-block { padding: 3rem 1.25rem; }
+    }
+    #experience { padding: 5rem 2.5rem; background: var(--bg); }
+    #portfolio   { padding: 5rem 2.5rem; background: white; }
+
+    .exp-timeline {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* vertical spine */
+    .exp-timeline::before {
+      content: '';
+      position: absolute;
+      left: 148px;
+      top: 8px; bottom: 8px;
+      width: 1px;
+      background: var(--rule);
+    }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 140px 18px 1fr;
+      gap: 0 1.25rem;
+      padding-bottom: 3rem;
+      align-items: start;
+    }
+
+    .exp-item:last-child { padding-bottom: 0; }
+
+    .exp-left {
+      text-align: right;
+      padding-top: 0.15rem;
+    }
+
+    .exp-dates {
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .exp-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid var(--accent);
+      margin-top: 0.3rem;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      justify-self: center;
+    }
+
+    .exp-right { padding-bottom: 0.25rem; }
+
+    .exp-role {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 0.2rem;
+      letter-spacing: -0.01em;
+    }
+
+    .exp-org {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--accent);
+      margin-bottom: 0.85rem;
+      letter-spacing: 0.01em;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+
+    .exp-bullets li {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: #555;
+      line-height: 1.75;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .exp-bullets li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--rule);
+    }
+
+    .exp-bullets li + li { margin-top: 0.3rem; }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .etag {
+      font-size: 0.67rem;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      background: rgba(26,24,20,0.05);
+      padding: 0.18rem 0.55rem;
+      border: 1px solid var(--rule);
+    }
+
+    @media (max-width: 640px) {
+      .exp-timeline::before { left: 0; }
+      .exp-item { grid-template-columns: 18px 1fr; gap: 0 1rem; }
+      .exp-left { display: none; }
+      .exp-right { padding-left: 0; }
+    }
     #about {
       background: white;
       padding: 6rem 2.5rem;
@@ -379,10 +596,11 @@
     }
 
     .about-heading {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.9rem, 3.2vw, 2.8rem);
-      font-weight: 400;
-      line-height: 1.15;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+      font-weight: 700;
+      font-style: normal;
+      line-height: 1.05;
       letter-spacing: -0.02em;
       margin-bottom: 2rem;
     }
@@ -390,7 +608,7 @@
 
     .about-body {
       font-size: 0.93rem;
-      font-weight: 300;
+      font-weight: 400;
       line-height: 1.9;
       color: #4a4740;
     }
@@ -401,7 +619,7 @@
     .skills-block + .skills-block { margin-top: 2.25rem; }
 
     .skills-block-title {
-      font-family: 'Clash Display', sans-serif;
+      font-family: 'Lora', serif;
       font-size: 0.7rem;
       font-weight: 600;
       letter-spacing: 0.12em;
@@ -416,7 +634,7 @@
 
     .skill-chip {
       font-size: 0.79rem;
-      font-weight: 300;
+      font-weight: 400;
       padding: 0.28rem 0.7rem;
       background: var(--bg);
       border: 1px solid rgba(26,24,20,0.1);
@@ -433,19 +651,20 @@
     }
 
     .contact-heading {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2rem, 3.8vw, 3.2rem);
-      font-weight: 400;
-      line-height: 1.1;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 700;
+      font-style: normal;
+      line-height: 1.02;
       color: white;
-      letter-spacing: -0.025em;
+      letter-spacing: -0.02em;
       margin-bottom: 1.5rem;
     }
     .contact-heading em { font-style: italic; color: rgba(255,255,255,0.3); }
 
     .contact-note {
       font-size: 0.88rem;
-      font-weight: 300;
+      font-weight: 400;
       color: rgba(255,255,255,0.4);
       line-height: 1.8;
       max-width: 360px;
@@ -512,11 +731,11 @@
     }
 
     .edu-heading {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
-      font-weight: 400;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.7rem, 2.8vw, 2.5rem);
+      font-weight: 700;
       color: white;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
     }
 
     .edu-timeline {
@@ -575,9 +794,9 @@
     }
 
     .edu-degree {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(1.1rem, 1.6vw, 1.4rem);
-      font-weight: 400;
+      font-weight: 700;
       line-height: 1.25;
       color: white;
       margin-bottom: 0.35rem;
@@ -586,14 +805,14 @@
 
     .edu-school {
       font-size: 0.85rem;
-      font-weight: 300;
+      font-weight: 400;
       color: rgba(255,255,255,0.5);
       margin-bottom: 0.75rem;
     }
 
     .edu-detail {
       font-size: 0.8rem;
-      font-weight: 300;
+      font-weight: 400;
       color: rgba(255,255,255,0.32);
       line-height: 1.65;
     }
@@ -603,6 +822,119 @@
       .edu-timeline::before { display: none; }
       .edu-item,
       .edu-item:nth-child(2) { padding: 2rem 0; border-left: none; }
+    }
+
+    /* ── ABOUT EDU BLOCK (vertical timeline inside about section) ── */
+    .edu-block { padding-top: 0.25rem; }
+
+    .edu-block .edu-pre {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.75rem;
+    }
+
+    .edu-block .edu-timeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      grid-template-columns: none;
+    }
+
+    .edu-block .edu-timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 28px;
+      bottom: 28px;
+      width: 1px;
+      background: var(--rule);
+      transform: none;
+    }
+
+    .edu-block .edu-item {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 1rem;
+      padding: 0 0 2.25rem 0;
+      border-top: none;
+    }
+
+    .edu-block .edu-item:last-child { padding-bottom: 0; }
+    .edu-block .edu-item:nth-child(2) { padding: 0; border-left: none; }
+
+    .edu-dot-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 2px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .edu-block .edu-logo-wrap {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: white;
+      border: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px;
+      margin-bottom: 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+
+    .edu-block .edu-logo-wrap img {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+    }
+
+    .edu-uni-name {
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.3;
+      margin-top: 0.35rem;
+    }
+
+    .edu-body { padding-top: 0.1rem; }
+
+    .edu-block .edu-year {
+      font-size: 0.67rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .edu-block .edu-degree {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+
+    .edu-block .edu-school {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .edu-block .edu-detail {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: #aaa;
     }
 
     /* ── RESPONSIVE ── */
@@ -622,7 +954,7 @@
 
     @media (max-width: 560px) {
       nav { padding: 1rem 1.25rem; }
-      #hero, #work, #about, #contact, #intro, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+      #hero, #experience, #portfolio, #about, #contact, #intro, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
       .nav-right a:not(.nav-cta) { display: none; }
     }
   </style>
@@ -633,8 +965,9 @@
 <nav id="main-nav">
   <a href="#hero" class="nav-name">Zoë Maymon</a>
   <div class="nav-right">
-    <a href="#work">Work</a>
     <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#portfolio">Portfolio</a>
     <a href="#contact" class="nav-cta">Contact</a>
   </div>
 </nav>
@@ -645,7 +978,7 @@
   <div class="hero-content">
     <p class="hero-kicker">GIS &amp; Data Analytics Specialist</p>
     <h1 class="hero-h1">Turning spatial<br>data into<br><em>decisions.</em></h1>
-    <p class="hero-sub">I build maps, spatial tools, and automated workflows that help organizations understand and act on geographic data — from environmental monitoring to infrastructure compliance.</p>
+    <p class="hero-sub">Maps, spatial tools, and automated pipelines, built for people who need to understand where things are happening and why it matters.</p>
   </div>
 
   <div class="hero-bottom">
@@ -661,170 +994,12 @@
 <section id="intro">
   <div class="intro-label">What I do</div>
   <p class="intro-text">
-    I work across the full GIS stack — from raw data and geoprocessing to
-    interactive dashboards and automated reporting pipelines.
-    <span>Whether that's a Python script that cuts manual work by 40%, a Google Earth Engine
-    analysis of fire trends, or a PowerBI dashboard that makes compliance data legible
-    for non-technical stakeholders.</span>
+    Raw data in, useful thing out. That's the job, whether it's
+    geoprocessing pipelines, compliance dashboards, or a Python script
+    so nobody has to do that thing manually ever again.
+    <span>GEE for fire analysis in Borneo, Power BI for building scientists
+    who don't speak SQL, ArcPy for a state agency that was drowning in spreadsheets.</span>
   </p>
-</section>
-
-<!-- WORK -->
-<section id="work">
-  <div class="work-header">
-    <h2 class="work-title">Selected work</h2>
-    <span class="work-count">6 projects</span>
-  </div>
-
-  <div class="filter-row">
-    <button class="ftab on" data-f="all">All</button>
-    <button class="ftab" data-f="interactive">Interactive</button>
-    <button class="ftab" data-f="static">Static maps</button>
-    <button class="ftab" data-f="dataviz">Data viz</button>
-    <button class="ftab" data-f="storymap">Story maps</button>
-  </div>
-
-  <div class="project-list">
-
-    <div class="project-row" data-type="dataviz">
-      <div class="proj-thumb">
-        <div class="proj-thumb-inner" style="background:#0d2b1f;">
-          <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/8/102/76" alt="" style="opacity:0.65;">
-        </div>
-      </div>
-      <div class="proj-body">
-        <div>
-          <p class="proj-type">Remote Sensing · Data Visualization</p>
-          <h3 class="proj-title">Fire &amp; Aerosol Trends<br>in Indonesia</h3>
-          <p class="proj-desc">Analyzed a decade of fire and aerosol data (2010–2020) across Indonesia using Google Earth Engine. Synthesized environmental findings into visual reports used to inform regional policy and public health decisions for EcoHealth Alliance.</p>
-        </div>
-        <div class="proj-footer">
-          <div class="proj-tags">
-            <span class="ptag">Google Earth Engine</span>
-            <span class="ptag">JavaScript</span>
-            <span class="ptag">Remote sensing</span>
-          </div>
-          <a href="#" class="proj-link">View project →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-row" data-type="dataviz">
-      <div class="proj-thumb">
-        <div class="proj-thumb-inner" style="background:#0e1f33;">
-          <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/8/99/72" alt="" style="opacity:0.55;">
-        </div>
-      </div>
-      <div class="proj-body">
-        <div>
-          <p class="proj-type">Dashboard · Workflow Automation</p>
-          <h3 class="proj-title">BIM Compliance<br>Tracking Dashboard</h3>
-          <p class="proj-desc">Built interactive PowerBI dashboards and paginated reports enabling stakeholders to track BIM project compliance with location-based filtering. Paired with Power Automate workflows that cut manual reporting effort by 40%. Developed for the National Institute of Building Sciences.</p>
-        </div>
-        <div class="proj-footer">
-          <div class="proj-tags">
-            <span class="ptag">Power BI</span>
-            <span class="ptag">Power Automate</span>
-            <span class="ptag">ArcGIS Online</span>
-          </div>
-          <a href="#" class="proj-link">View project →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-row" data-type="static">
-      <div class="proj-thumb">
-        <div class="proj-thumb-inner" style="background:#1a1228;">
-          <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/9/195/150" alt="" style="opacity:0.4;">
-        </div>
-      </div>
-      <div class="proj-body">
-        <div>
-          <p class="proj-type">Remote Sensing · QA/QC</p>
-          <h3 class="proj-title">Satellite Imagery<br>Mosaic Validation</h3>
-          <p class="proj-desc">Validated large-scale satellite imagery mosaics at DigitalGlobe (Maxar), ensuring spatial accuracy through ground control point integration. Managed imagery assets in an AWS cloud environment and tested internal image-processing software for performance and accuracy.</p>
-        </div>
-        <div class="proj-footer">
-          <div class="proj-tags">
-            <span class="ptag">DigitalGlobe / Maxar</span>
-            <span class="ptag">AWS (S3, EC2)</span>
-            <span class="ptag">QA/QC</span>
-          </div>
-          <a href="#" class="proj-link">View project →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-row" data-type="storymap">
-      <div class="proj-thumb">
-        <div class="proj-thumb-inner" style="background:#2a1206;">
-          <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/10/392/305" alt="" style="opacity:0.5;">
-        </div>
-      </div>
-      <div class="proj-body">
-        <div>
-          <p class="proj-type">Public Health · Spatial Analysis</p>
-          <h3 class="proj-title">Opioid Overdose<br>Mapping — Maryland</h3>
-          <p class="proj-desc">Analyzed opioid overdose data, produced choropleth and point maps, and developed shapefiles prepared for ArcGIS Server deployment. Work supported the Maryland Department of Health's Office of Overdose Prevention in identifying geographic concentrations for intervention.</p>
-        </div>
-        <div class="proj-footer">
-          <div class="proj-tags">
-            <span class="ptag">ArcGIS Pro</span>
-            <span class="ptag">ArcGIS Server</span>
-            <span class="ptag">Public health GIS</span>
-          </div>
-          <a href="#" class="proj-link">View project →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-row" data-type="interactive">
-      <div class="proj-thumb">
-        <div class="proj-thumb-inner" style="background:#041826;">
-          <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/8/97/60" alt="" style="opacity:0.55;">
-        </div>
-      </div>
-      <div class="proj-body">
-        <div>
-          <p class="proj-type">Spatial Analysis · Research</p>
-          <h3 class="proj-title">Broadband Coverage &amp;<br>Economic Growth</h3>
-          <p class="proj-desc">GIS analysis correlating broadband infrastructure coverage with economic growth indicators using ArcGIS and Census data. Conducted at the University of Baltimore, with outputs supporting research into digital equity and regional development patterns.</p>
-        </div>
-        <div class="proj-footer">
-          <div class="proj-tags">
-            <span class="ptag">ArcGIS</span>
-            <span class="ptag">Census data</span>
-            <span class="ptag">Spatial statistics</span>
-          </div>
-          <a href="#" class="proj-link">View project →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-row" data-type="dataviz">
-      <div class="proj-thumb">
-        <div class="proj-thumb-inner" style="background:#0e2210;">
-          <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/7/60/36" alt="" style="opacity:0.6;">
-        </div>
-      </div>
-      <div class="proj-body">
-        <div>
-          <p class="proj-type">Automation · Environmental GIS</p>
-          <h3 class="proj-title">Stormwater &amp; Dam Safety<br>Compliance Reporting</h3>
-          <p class="proj-desc">Automated Python-based data queries and maintained GIS database integrity for Maryland's Stormwater and Dam Safety programs. Assisted field inspections and produced spatial compliance reports for state environmental regulations using ArcGIS and ArcPy.</p>
-        </div>
-        <div class="proj-footer">
-          <div class="proj-tags">
-            <span class="ptag">Python / ArcPy</span>
-            <span class="ptag">ArcGIS Pro</span>
-            <span class="ptag">Environmental GIS</span>
-          </div>
-          <a href="#" class="proj-link">View project →</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
 </section>
 
 <!-- ABOUT -->
@@ -833,9 +1008,9 @@
     <p class="about-pre">About</p>
     <h2 class="about-heading">I turn messy<br>spatial data into<br><em>things that work.</em></h2>
     <div class="about-body">
-      <p>I'm a GIS and data analytics specialist based in Hyattsville, MD, with an M.S. in GIS from Clark University. My work covers the full stack — geoprocessing and spatial analysis, automated reporting pipelines, interactive dashboards, and everything in between.</p>
-      <p>I've worked across environmental consulting, public health, federal building sciences, and remote sensing — usually on projects where the data is complex, the audience is non-technical, and the deadline was yesterday.</p>
-      <p>I hold an active Secret security clearance and have experience working in cloud environments (AWS), enterprise GIS systems, and Linux/CentOS. When I'm not in ArcGIS, I'm probably writing a Python script to avoid ever having to do something manually twice.</p>
+      <p>GIS and data analytics specialist, Hyattsville MD. M.S. from Clark, B.S. from UMBC, about nine years of work that spans environmental consulting, public health, federal building sciences, and satellite imagery. It sounds scattered until you realize the common thread is spatial data that nobody's cleaned yet.</p>
+      <p>Most of my projects sit at the intersection of messy data and non-technical audiences. I like that problem. The analysis is rarely the hard part. Figuring out how to present dam safety data to a state agency, or fire trends to a policy team, usually is.</p>
+      <p>Active Secret clearance. Comfortable in AWS, enterprise GIS stacks, Linux. I write a lot of Python because doing the same thing twice feels like giving up.</p>
     </div>
   </div>
 
@@ -858,6 +1033,7 @@
               </svg>
             </template>
           </div>
+          <p class="edu-uni-name">Clark<br>University</p>
         </div>
         <div class="edu-body">
           <p class="edu-year">2019 – 2021</p>
@@ -880,6 +1056,7 @@
               </svg>
             </template>
           </div>
+          <p class="edu-uni-name">UMBC</p>
         </div>
         <div class="edu-body">
           <p class="edu-year">2013 – 2017</p>
@@ -958,7 +1135,7 @@
       </div>
       <p class="edu-year">Graduated June 2021</p>
       <h3 class="edu-degree">M.S. Geographic<br>Information Systems</h3>
-      <p class="edu-school">Clark University &mdash; Worcester, MA</p>
+      <p class="edu-school">Clark University, Worcester, MA</p>
       <p class="edu-detail">Graduate research focused on remote sensing and spatial analysis. Completed GIS thesis and coursework in advanced geoprocessing, cartographic design, and spatial statistics.</p>
     </div>
 
@@ -971,18 +1148,359 @@
       </div>
       <p class="edu-year">Graduated May 2017</p>
       <h3 class="edu-degree">B.S. Geography<br><span style="font-size:0.85em;color:rgba(255,255,255,0.45);">Minor in Mathematics</span></h3>
-      <p class="edu-school">University of Maryland, Baltimore County &mdash; Baltimore, MD</p>
+      <p class="edu-school">University of Maryland, Baltimore County, Baltimore, MD</p>
       <p class="edu-detail">Undergraduate focus on physical and human geography with quantitative methods. Served as GIS teaching assistant and conducted original research on broadband access and economic development.</p>
     </div>
 
   </div>
 </section>
 
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="work-header">
+    <h2 class="work-title">Experience</h2>
+    <span class="work-count">2016 – present</span>
+  </div>
+
+  <div class="exp-timeline">
+
+    <div class="exp-item">
+      <div class="exp-left">
+        <span class="exp-dates">Aug 2021 – Oct 2025</span>
+      </div>
+      <div class="exp-dot"></div>
+      <div class="exp-right">
+        <p class="exp-role">BIM Data Analyst</p>
+        <p class="exp-org">National Institute of Building Sciences, Washington, D.C.</p>
+        <ul class="exp-bullets">
+          <li>Designed Power BI dashboards and paginated reports so project managers could track BIM compliance without opening a spreadsheet</li>
+          <li>Built Power Automate workflows to handle report distribution, which dropped manual processing time by about 40%</li>
+          <li>Kept technical documentation tight enough that anyone on the team could reproduce outputs without asking me</li>
+          <li>Sat between the geospatial team and everyone else, which mostly meant translating</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="etag">Power BI</span><span class="etag">Power Automate</span><span class="etag">ArcGIS Online</span><span class="etag">PostGIS</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-left">
+        <span class="exp-dates">Mar – Jun 2021</span>
+      </div>
+      <div class="exp-dot"></div>
+      <div class="exp-right">
+        <p class="exp-role">GIS Consultant</p>
+        <p class="exp-org">EcoHealth Alliance, Remote</p>
+        <ul class="exp-bullets">
+          <li>Pulled a decade of fire and aerosol data (2010–2020) across Indonesia using Google Earth Engine and JavaScript. More data than you'd want to handle locally</li>
+          <li>Turned the analysis into visual reports that could actually land with a policy audience, not just other analysts</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="etag">Google Earth Engine</span><span class="etag">JavaScript</span><span class="etag">Remote Sensing</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-left">
+        <span class="exp-dates">May – Aug 2020</span>
+      </div>
+      <div class="exp-dot"></div>
+      <div class="exp-right">
+        <p class="exp-role">Remote Sensing Intern</p>
+        <p class="exp-org">DigitalGlobe (Maxar), Remote</p>
+        <ul class="exp-bullets">
+          <li>QA'd satellite imagery mosaics: checking spatial accuracy, integrating ground control points, flagging anything that didn't line up</li>
+          <li>Worked out of an AWS environment managing large imagery datasets and testing internal processing software</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="etag">AWS (S3, EC2)</span><span class="etag">Satellite Imagery</span><span class="etag">QA/QC</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-left">
+        <span class="exp-dates">Aug 2018 – Aug 2019</span>
+      </div>
+      <div class="exp-dot"></div>
+      <div class="exp-right">
+        <p class="exp-role">GIS Intern</p>
+        <p class="exp-org">Maryland Department of the Environment, Baltimore, MD</p>
+        <ul class="exp-bullets">
+          <li>Wrote Python scripts to automate data queries for Stormwater and Dam Safety, less manual pulling, better database hygiene</li>
+          <li>Went out on field inspections and used the spatial analysis to back up compliance reports for state environmental regs</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="etag">Python / ArcPy</span><span class="etag">ArcGIS Pro</span><span class="etag">Geodatabases</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-left">
+        <span class="exp-dates">2017 – 2021</span>
+      </div>
+      <div class="exp-dot"></div>
+      <div class="exp-right">
+        <p class="exp-role">Teaching &amp; Research Roles</p>
+        <p class="exp-org">Clark University &amp; UMBC</p>
+        <ul class="exp-bullets">
+          <li>TA'd GIS and Remote Sensing at Clark. Ran labs, graded work, helped students get comfortable in ArcGIS and TerrSet</li>
+          <li>Research project at U of Baltimore mapping broadband gaps against economic indicators using Census data and ArcGIS</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="etag">ArcGIS</span><span class="etag">TerrSet</span><span class="etag">Census Data</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-left">
+        <span class="exp-dates">Oct – Dec 2016</span>
+      </div>
+      <div class="exp-dot"></div>
+      <div class="exp-right">
+        <p class="exp-role">GIS Intern, Office of Overdose Prevention</p>
+        <p class="exp-org">Maryland Department of Health, Catonsville, MD</p>
+        <ul class="exp-bullets">
+          <li>Mapped opioid overdose data for the Office of Overdose Prevention: choropleth maps, point data, shapefiles set up for ArcGIS Server</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="etag">ArcGIS Server</span><span class="etag">Public Health GIS</span><span class="etag">Shapefiles</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+
+  <!-- PERSONAL PROJECTS -->
+  <div class="portfolio-block personal-block maps-block">
+    <div class="work-header">
+      <h2 class="work-title">Maps &amp; Visualizations</h2>
+      <span class="work-count">In progress</span>
+    </div>
+    <p class="portfolio-block-desc">Maps, visualizations, and spatial experiments built outside of work. Swap placeholders out as projects are ready.</p>
+
+    <div class="personal-grid">
+
+      <div class="personal-card placeholder">
+        <div class="pc-number">01</div>
+        <p class="pc-status">Coming soon</p>
+        <h3 class="pc-title">Project title</h3>
+        <p class="pc-desc">Replace this with a short description of what you're building and what problem it solves.</p>
+        <div class="pc-tags">
+          <span class="ptag">Tool</span>
+          <span class="ptag">Tool</span>
+        </div>
+      </div>
+
+      <div class="personal-card placeholder">
+        <div class="pc-number">02</div>
+        <p class="pc-status">Coming soon</p>
+        <h3 class="pc-title">Project title</h3>
+        <p class="pc-desc">Replace this with a short description of what you're building and what problem it solves.</p>
+        <div class="pc-tags">
+          <span class="ptag">Tool</span>
+          <span class="ptag">Tool</span>
+        </div>
+      </div>
+
+      <div class="personal-card placeholder">
+        <div class="pc-number">03</div>
+        <p class="pc-status">Coming soon</p>
+        <h3 class="pc-title">Project title</h3>
+        <p class="pc-desc">Replace this with a short description of what you're building and what problem it solves.</p>
+        <div class="pc-tags">
+          <span class="ptag">Tool</span>
+          <span class="ptag">Tool</span>
+        </div>
+      </div>
+
+      <div class="personal-card placeholder">
+        <div class="pc-number">04</div>
+        <p class="pc-status">Coming soon</p>
+        <h3 class="pc-title">Project title</h3>
+        <p class="pc-desc">Replace this with a short description of what you're building and what problem it solves.</p>
+        <div class="pc-tags">
+          <span class="ptag">Tool</span>
+          <span class="ptag">Tool</span>
+        </div>
+      </div>
+
+      <div class="personal-card placeholder">
+        <div class="pc-number">05</div>
+        <p class="pc-status">Coming soon</p>
+        <h3 class="pc-title">Project title</h3>
+        <p class="pc-desc">Replace this with a short description of what you're building and what problem it solves.</p>
+        <div class="pc-tags">
+          <span class="ptag">Tool</span>
+          <span class="ptag">Tool</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- WORK PROJECTS -->
+  <div class="portfolio-block">
+    <div class="work-header">
+      <h2 class="work-title">Work projects</h2>
+      <span class="work-count">6 projects</span>
+    </div>
+    <p class="portfolio-block-desc">Projects built on the job, for employers and clients. No live links — most live behind internal systems or client accounts.</p>
+
+    <div class="project-list">
+
+      <div class="project-row" data-type="dataviz">
+        <div class="proj-thumb">
+          <div class="proj-thumb-inner" style="background:#0d2b1f;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/8/102/76" alt="" style="opacity:0.65;">
+          </div>
+        </div>
+        <div class="proj-body">
+          <div>
+            <p class="proj-type">Remote Sensing · Data Visualization</p>
+            <h3 class="proj-title">Fire &amp; Aerosol Trends<br>in Indonesia</h3>
+            <p class="proj-desc">Ten years of fire and aerosol data across Indonesia, processed in Google Earth Engine. The challenge wasn't the analysis. It was distilling satellite-derived environmental trends into something a regional policy team could actually use. Built for EcoHealth Alliance.</p>
+          </div>
+          <div class="proj-footer">
+            <div class="proj-tags">
+              <span class="ptag">Google Earth Engine</span>
+              <span class="ptag">JavaScript</span>
+              <span class="ptag">Remote sensing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-row" data-type="dataviz">
+        <div class="proj-thumb">
+          <div class="proj-thumb-inner" style="background:#0e1f33;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/8/99/72" alt="" style="opacity:0.55;">
+          </div>
+        </div>
+        <div class="proj-body">
+          <div>
+            <p class="proj-type">Dashboard · Workflow Automation</p>
+            <h3 class="proj-title">BIM Compliance<br>Tracking Dashboard</h3>
+            <p class="proj-desc">The ask: project managers needed to track BIM compliance across a portfolio of federal building projects without touching raw data. Power BI dashboards with location-based filtering, automated via Power Automate. Cut manual reporting work by 40%. Built at NIBS.</p>
+          </div>
+          <div class="proj-footer">
+            <div class="proj-tags">
+              <span class="ptag">Power BI</span>
+              <span class="ptag">Power Automate</span>
+              <span class="ptag">ArcGIS Online</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-row" data-type="static">
+        <div class="proj-thumb">
+          <div class="proj-thumb-inner" style="background:#1a1228;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/9/195/150" alt="" style="opacity:0.4;">
+          </div>
+        </div>
+        <div class="proj-body">
+          <div>
+            <p class="proj-type">Remote Sensing · QA/QC</p>
+            <h3 class="proj-title">Satellite Imagery<br>Mosaic Validation</h3>
+            <p class="proj-desc">QA/QC on satellite imagery mosaics at Maxar: integrating ground control points, checking spatial accuracy, and testing internal processing software before it went anywhere near production. All of it running out of AWS.</p>
+          </div>
+          <div class="proj-footer">
+            <div class="proj-tags">
+              <span class="ptag">DigitalGlobe / Maxar</span>
+              <span class="ptag">AWS (S3, EC2)</span>
+              <span class="ptag">QA/QC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-row" data-type="storymap">
+        <div class="proj-thumb">
+          <div class="proj-thumb-inner" style="background:#2a1206;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/10/392/305" alt="" style="opacity:0.5;">
+          </div>
+        </div>
+        <div class="proj-body">
+          <div>
+            <p class="proj-type">Public Health · Spatial Analysis</p>
+            <h3 class="proj-title">Opioid Overdose<br>Mapping, Maryland</h3>
+            <p class="proj-desc">Mapped overdose data across Maryland for the state Department of Health's Office of Overdose Prevention. Choropleth maps, point data, shapefiles, built to be loaded into ArcGIS Server so the team could keep using them after I was gone.</p>
+          </div>
+          <div class="proj-footer">
+            <div class="proj-tags">
+              <span class="ptag">ArcGIS Pro</span>
+              <span class="ptag">ArcGIS Server</span>
+              <span class="ptag">Public health GIS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-row" data-type="interactive">
+        <div class="proj-thumb">
+          <div class="proj-thumb-inner" style="background:#041826;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/8/97/60" alt="" style="opacity:0.55;">
+          </div>
+        </div>
+        <div class="proj-body">
+          <div>
+            <p class="proj-type">Spatial Analysis · Research</p>
+            <h3 class="proj-title">Broadband Coverage &amp;<br>Economic Growth</h3>
+            <p class="proj-desc">Where does broadband infrastructure actually exist, and does it track with economic outcomes? ArcGIS analysis layered against Census data at the University of Baltimore. The gaps were more visible spatially than any table could show.</p>
+          </div>
+          <div class="proj-footer">
+            <div class="proj-tags">
+              <span class="ptag">ArcGIS</span>
+              <span class="ptag">Census data</span>
+              <span class="ptag">Spatial statistics</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-row" data-type="dataviz">
+        <div class="proj-thumb">
+          <div class="proj-thumb-inner" style="background:#0e2210;">
+            <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/7/60/36" alt="" style="opacity:0.6;">
+          </div>
+        </div>
+        <div class="proj-body">
+          <div>
+            <p class="proj-type">Automation · Environmental GIS</p>
+            <h3 class="proj-title">Stormwater &amp; Dam Safety<br>Compliance Reporting</h3>
+            <p class="proj-desc">Maryland's Stormwater and Dam Safety programs run on GIS data that someone has to keep clean. I automated the query side with ArcPy, kept the geodatabases in order, went out on field inspections, and turned it all into compliance reports for state regs.</p>
+          </div>
+          <div class="proj-footer">
+            <div class="proj-tags">
+              <span class="ptag">Python / ArcPy</span>
+              <span class="ptag">ArcGIS Pro</span>
+              <span class="ptag">Environmental GIS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-left">
     <h2 class="contact-heading">Let's work<br>on something<br><em>worth making.</em></h2>
-    <p class="contact-note">Available for freelance projects, contract work, and full-time roles in GIS analysis, spatial data science, or data engineering. Active Secret security clearance. Based in Hyattsville, MD.</p>
+    <p class="contact-note">Open to freelance, contract, and full-time work: GIS analysis, spatial data science, data engineering. Active Secret clearance. In Hyattsville, MD, available remote or DC-area.</p>
   </div>
   <div class="contact-right">
     <a href="mailto:zoe.maymon@gmail.com" class="contact-item">
@@ -1028,5 +1546,6 @@
     });
   });
 </script>
+
 </body>
 </html>
