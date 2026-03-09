@@ -519,7 +519,7 @@
 
 <!-- NAV -->
 <nav id="main-nav">
-  <a href="#hero" class="nav-name">Zoe Maymon</a>
+  <a href="#hero" class="nav-name">Zoë Maymon</a>
   <div class="nav-right">
     <a href="#work">Work</a>
     <a href="#about">About</a>
@@ -549,8 +549,8 @@
 
   <div class="hero-content">
     <p class="hero-kicker">GIS &amp; Data Analytics Specialist</p>
-    <h1 class="hero-h1">Mapping<br>what matters<br><em>in the world.</em></h1>
-    <p class="hero-sub">I build maps and spatial tools that help people understand place — from flood risk models to urban equity analyses to story-driven cartography.</p>
+    <h1 class="hero-h1">Turning spatial<br>data into<br><em>decisions.</em></h1>
+    <p class="hero-sub">I build maps, spatial tools, and automated workflows that help organizations understand and act on geographic data — from environmental monitoring to infrastructure compliance.</p>
   </div>
 
   <div class="hero-bottom">
@@ -566,10 +566,11 @@
 <section id="intro">
   <div class="intro-label">What I do</div>
   <p class="intro-text">
-    I work at the intersection of geography, data, and design —
-    turning raw spatial data into tools people actually use.
-    <span>Whether that's an interactive flood viewer, a redlining story map,
-    or a watershed analysis for a conservation project.</span>
+    I work across the full GIS stack — from raw data and geoprocessing to
+    interactive dashboards and automated reporting pipelines.
+    <span>Whether that's a Python script that cuts manual work by 40%, a Google Earth Engine
+    analysis of fire trends, or a PowerBI dashboard that makes compliance data legible
+    for non-technical stakeholders.</span>
   </p>
 </section>
 
@@ -590,7 +591,7 @@
 
   <div class="project-list">
 
-    <div class="project-row" data-type="interactive">
+    <div class="project-row" data-type="dataviz">
       <div class="proj-thumb">
         <div class="proj-thumb-inner" style="background:#0d2b1f;">
           <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/8/102/76" alt="" style="opacity:0.65;">
@@ -598,38 +599,15 @@
       </div>
       <div class="proj-body">
         <div>
-          <p class="proj-type">Interactive Map</p>
-          <h3 class="proj-title">Urban Heat Island<br>Analysis</h3>
-          <p class="proj-desc">Mapbox visualization of surface temperature variations across the city. Temporal slider lets users scrub through summer months; neighborhoods aggregate to median LST with confidence intervals.</p>
+          <p class="proj-type">Remote Sensing · Data Visualization</p>
+          <h3 class="proj-title">Fire &amp; Aerosol Trends<br>in Indonesia</h3>
+          <p class="proj-desc">Analyzed a decade of fire and aerosol data (2010–2020) across Indonesia using Google Earth Engine. Synthesized environmental findings into visual reports used to inform regional policy and public health decisions for EcoHealth Alliance.</p>
         </div>
         <div class="proj-footer">
           <div class="proj-tags">
-            <span class="ptag">Mapbox GL JS</span>
-            <span class="ptag">Python</span>
-            <span class="ptag">Landsat</span>
-          </div>
-          <a href="#" class="proj-link">View project →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-row" data-type="static">
-      <div class="proj-thumb">
-        <div class="proj-thumb-inner" style="background:#0e1f33;">
-          <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/8/99/72" alt="" style="opacity:0.55;">
-        </div>
-      </div>
-      <div class="proj-body">
-        <div>
-          <p class="proj-type">Static Map</p>
-          <h3 class="proj-title">Watershed Delineation —<br>Blue Ridge</h3>
-          <p class="proj-desc">Hydrological mapping of sub-watersheds from 10m DEM. Hillshade, stream order by Strahler classification, and catchment boundaries rendered for print at 300dpi.</p>
-        </div>
-        <div class="proj-footer">
-          <div class="proj-tags">
-            <span class="ptag">ArcGIS Pro</span>
-            <span class="ptag">DEM / TIN</span>
-            <span class="ptag">Hydrology</span>
+            <span class="ptag">Google Earth Engine</span>
+            <span class="ptag">JavaScript</span>
+            <span class="ptag">Remote sensing</span>
           </div>
           <a href="#" class="proj-link">View project →</a>
         </div>
@@ -638,21 +616,44 @@
 
     <div class="project-row" data-type="dataviz">
       <div class="proj-thumb">
+        <div class="proj-thumb-inner" style="background:#0e1f33;">
+          <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/8/99/72" alt="" style="opacity:0.55;">
+        </div>
+      </div>
+      <div class="proj-body">
+        <div>
+          <p class="proj-type">Dashboard · Workflow Automation</p>
+          <h3 class="proj-title">BIM Compliance<br>Tracking Dashboard</h3>
+          <p class="proj-desc">Built interactive PowerBI dashboards and paginated reports enabling stakeholders to track BIM project compliance with location-based filtering. Paired with Power Automate workflows that cut manual reporting effort by 40%. Developed for the National Institute of Building Sciences.</p>
+        </div>
+        <div class="proj-footer">
+          <div class="proj-tags">
+            <span class="ptag">Power BI</span>
+            <span class="ptag">Power Automate</span>
+            <span class="ptag">ArcGIS Online</span>
+          </div>
+          <a href="#" class="proj-link">View project →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-row" data-type="static">
+      <div class="proj-thumb">
         <div class="proj-thumb-inner" style="background:#1a1228;">
           <img src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/9/195/150" alt="" style="opacity:0.4;">
         </div>
       </div>
       <div class="proj-body">
         <div>
-          <p class="proj-type">Data Visualization</p>
-          <h3 class="proj-title">Commute Flow<br>Dashboard</h3>
-          <p class="proj-desc">Origin-destination flow map paired with a D3 chord diagram, showing inter-county commute patterns. Built for a regional planning agency; data from ACS 5-year PUMS.</p>
+          <p class="proj-type">Remote Sensing · QA/QC</p>
+          <h3 class="proj-title">Satellite Imagery<br>Mosaic Validation</h3>
+          <p class="proj-desc">Validated large-scale satellite imagery mosaics at DigitalGlobe (Maxar), ensuring spatial accuracy through ground control point integration. Managed imagery assets in an AWS cloud environment and tested internal image-processing software for performance and accuracy.</p>
         </div>
         <div class="proj-footer">
           <div class="proj-tags">
-            <span class="ptag">D3.js</span>
-            <span class="ptag">Census / PUMS</span>
-            <span class="ptag">Flow mapping</span>
+            <span class="ptag">DigitalGlobe / Maxar</span>
+            <span class="ptag">AWS (S3, EC2)</span>
+            <span class="ptag">QA/QC</span>
           </div>
           <a href="#" class="proj-link">View project →</a>
         </div>
@@ -667,15 +668,15 @@
       </div>
       <div class="proj-body">
         <div>
-          <p class="proj-type">Story Map</p>
-          <h3 class="proj-title">Redlining &amp; Green<br>Space Equity</h3>
-          <p class="proj-desc">Scrollytelling piece examining HOLC boundary data from the 1930s and present-day park access, tree canopy cover, and surface temperature across 12 U.S. cities.</p>
+          <p class="proj-type">Public Health · Spatial Analysis</p>
+          <h3 class="proj-title">Opioid Overdose<br>Mapping — Maryland</h3>
+          <p class="proj-desc">Analyzed opioid overdose data, produced choropleth and point maps, and developed shapefiles prepared for ArcGIS Server deployment. Work supported the Maryland Department of Health's Office of Overdose Prevention in identifying geographic concentrations for intervention.</p>
         </div>
         <div class="proj-footer">
           <div class="proj-tags">
-            <span class="ptag">ArcGIS StoryMaps</span>
-            <span class="ptag">HOLC Data</span>
-            <span class="ptag">Equity analysis</span>
+            <span class="ptag">ArcGIS Pro</span>
+            <span class="ptag">ArcGIS Server</span>
+            <span class="ptag">Public health GIS</span>
           </div>
           <a href="#" class="proj-link">View project →</a>
         </div>
@@ -690,15 +691,15 @@
       </div>
       <div class="proj-body">
         <div>
-          <p class="proj-type">Interactive Map</p>
-          <h3 class="proj-title">Coastal Flood<br>Risk Viewer</h3>
-          <p class="proj-desc">Leaflet tool displaying 1%, 10%, and 100-year NOAA storm surge scenarios. Parcel-level queries return estimated replacement value and days-at-risk per year.</p>
+          <p class="proj-type">Spatial Analysis · Research</p>
+          <h3 class="proj-title">Broadband Coverage &amp;<br>Economic Growth</h3>
+          <p class="proj-desc">GIS analysis correlating broadband infrastructure coverage with economic growth indicators using ArcGIS and Census data. Conducted at the University of Baltimore, with outputs supporting research into digital equity and regional development patterns.</p>
         </div>
         <div class="proj-footer">
           <div class="proj-tags">
-            <span class="ptag">Leaflet.js</span>
-            <span class="ptag">PostGIS</span>
-            <span class="ptag">FEMA / NOAA</span>
+            <span class="ptag">ArcGIS</span>
+            <span class="ptag">Census data</span>
+            <span class="ptag">Spatial statistics</span>
           </div>
           <a href="#" class="proj-link">View project →</a>
         </div>
@@ -713,15 +714,15 @@
       </div>
       <div class="proj-body">
         <div>
-          <p class="proj-type">Data Visualization</p>
-          <h3 class="proj-title">NDVI Change Detection<br>2000–2024</h3>
-          <p class="proj-desc">Multi-temporal Landsat analysis across a deforestation hotspot in the Brazilian Cerrado. Annual NDVI composites, change magnitude rasters, and animated GIF time-lapse output.</p>
+          <p class="proj-type">Automation · Environmental GIS</p>
+          <h3 class="proj-title">Stormwater &amp; Dam Safety<br>Compliance Reporting</h3>
+          <p class="proj-desc">Automated Python-based data queries and maintained GIS database integrity for Maryland's Stormwater and Dam Safety programs. Assisted field inspections and produced spatial compliance reports for state environmental regulations using ArcGIS and ArcPy.</p>
         </div>
         <div class="proj-footer">
           <div class="proj-tags">
-            <span class="ptag">Google Earth Engine</span>
-            <span class="ptag">Landsat 7/8/9</span>
-            <span class="ptag">Remote sensing</span>
+            <span class="ptag">Python / ArcPy</span>
+            <span class="ptag">ArcGIS Pro</span>
+            <span class="ptag">Environmental GIS</span>
           </div>
           <a href="#" class="proj-link">View project →</a>
         </div>
@@ -735,11 +736,11 @@
 <section id="about">
   <div class="about-left">
     <p class="about-pre">About</p>
-    <h2 class="about-heading">I make places<br>legible through<br><em>spatial data.</em></h2>
+    <h2 class="about-heading">I turn messy<br>spatial data into<br><em>things that work.</em></h2>
     <div class="about-body">
-      <p>I'm a GIS analyst and cartographer with a background in geography and urban planning. My work ranges from technical spatial analysis to polished print cartography to web-based interactive tools.</p>
-      <p>I've worked with conservation organizations, city planning departments, and academic research groups — usually on projects that involve large messy datasets, tight deadlines, and audiences who didn't ask to look at a map but needed to.</p>
-      <p>When I'm not staring at shapefiles, I'm usually hiking somewhere I've previously only seen from above on a satellite image.</p>
+      <p>I'm a GIS and data analytics specialist based in Hyattsville, MD, with an M.S. in GIS from Clark University. My work covers the full stack — geoprocessing and spatial analysis, automated reporting pipelines, interactive dashboards, and everything in between.</p>
+      <p>I've worked across environmental consulting, public health, federal building sciences, and remote sensing — usually on projects where the data is complex, the audience is non-technical, and the deadline was yesterday.</p>
+      <p>I hold an active Secret security clearance and have experience working in cloud environments (AWS), enterprise GIS systems, and Linux/CentOS. When I'm not in ArcGIS, I'm probably writing a Python script to avoid ever having to do something manually twice.</p>
     </div>
   </div>
   <div class="about-right">
@@ -748,39 +749,44 @@
       <div class="skills-inline">
         <span class="skill-chip">ArcGIS Pro</span>
         <span class="skill-chip">ArcGIS Online</span>
+        <span class="skill-chip">ArcGIS Enterprise</span>
         <span class="skill-chip">QGIS</span>
         <span class="skill-chip">Google Earth Engine</span>
-        <span class="skill-chip">FME</span>
+        <span class="skill-chip">ENVI</span>
+        <span class="skill-chip">TerrSet</span>
       </div>
     </div>
     <div class="skills-block">
-      <div class="skills-block-title">Web mapping</div>
+      <div class="skills-block-title">Programming & automation</div>
       <div class="skills-inline">
-        <span class="skill-chip">Mapbox GL JS</span>
-        <span class="skill-chip">Leaflet.js</span>
-        <span class="skill-chip">Deck.gl</span>
-        <span class="skill-chip">Kepler.gl</span>
-        <span class="skill-chip">OpenLayers</span>
-      </div>
-    </div>
-    <div class="skills-block">
-      <div class="skills-block-title">Programming</div>
-      <div class="skills-inline">
-        <span class="skill-chip">Python</span>
-        <span class="skill-chip">GeoPandas</span>
-        <span class="skill-chip">R / sf</span>
-        <span class="skill-chip">PostGIS</span>
+        <span class="skill-chip">Python (ArcPy, Pandas, GDAL)</span>
+        <span class="skill-chip">SQL / PostGIS</span>
+        <span class="skill-chip">R</span>
         <span class="skill-chip">JavaScript</span>
-        <span class="skill-chip">D3.js</span>
+        <span class="skill-chip">ModelBuilder</span>
+        <span class="skill-chip">Power Automate</span>
+        <span class="skill-chip">Bash / Git</span>
       </div>
     </div>
     <div class="skills-block">
-      <div class="skills-block-title">Design & output</div>
+      <div class="skills-block-title">Visualization & dashboards</div>
       <div class="skills-inline">
-        <span class="skill-chip">Adobe Illustrator</span>
-        <span class="skill-chip">Cartographic design</span>
-        <span class="skill-chip">Story Maps</span>
-        <span class="skill-chip">Print cartography</span>
+        <span class="skill-chip">Power BI</span>
+        <span class="skill-chip">ArcGIS Dashboards</span>
+        <span class="skill-chip">StoryMaps</span>
+        <span class="skill-chip">ArcGIS Hub</span>
+        <span class="skill-chip">Matplotlib</span>
+        <span class="skill-chip">Report Builder</span>
+      </div>
+    </div>
+    <div class="skills-block">
+      <div class="skills-block-title">Cloud & database</div>
+      <div class="skills-inline">
+        <span class="skill-chip">AWS (S3, EC2)</span>
+        <span class="skill-chip">PostgreSQL / PostGIS</span>
+        <span class="skill-chip">ArcSDE</span>
+        <span class="skill-chip">Geodatabases</span>
+        <span class="skill-chip">Linux / CentOS</span>
       </div>
     </div>
   </div>
@@ -790,22 +796,22 @@
 <section id="contact">
   <div class="contact-left">
     <h2 class="contact-heading">Let's work<br>on something<br><em>worth making.</em></h2>
-    <p class="contact-note">Available for freelance projects, contract work, and full-time roles in GIS analysis, spatial data science, or cartography.</p>
+    <p class="contact-note">Available for freelance projects, contract work, and full-time roles in GIS analysis, spatial data science, or data engineering. Active Secret security clearance. Based in Hyattsville, MD.</p>
   </div>
   <div class="contact-right">
-    <a href="mailto:your@email.com" class="contact-item">
-      <div><p class="ci-label">Email</p><p class="ci-value">your@email.com</p></div>
+    <a href="mailto:zoe.maymon@gmail.com" class="contact-item">
+      <div><p class="ci-label">Email</p><p class="ci-value">zoe.maymon@gmail.com</p></div>
       <span class="ci-arrow">→</span>
     </a>
-    <a href="https://linkedin.com/in/yourprofile" class="contact-item" target="_blank">
-      <div><p class="ci-label">LinkedIn</p><p class="ci-value">linkedin.com/in/yourprofile</p></div>
+    <a href="tel:4106606527" class="contact-item">
+      <div><p class="ci-label">Phone</p><p class="ci-value">(410) 660-6527</p></div>
       <span class="ci-arrow">→</span>
     </a>
-    <a href="https://github.com/yourusername" class="contact-item" target="_blank">
-      <div><p class="ci-label">GitHub</p><p class="ci-value">github.com/yourusername</p></div>
+    <a href="https://linkedin.com/in/zoemaymon" class="contact-item" target="_blank">
+      <div><p class="ci-label">LinkedIn</p><p class="ci-value">linkedin.com/in/zoemaymon</p></div>
       <span class="ci-arrow">→</span>
     </a>
-    <a href="resume.pdf" class="contact-item" target="_blank">
+    <a href="zoe_maymon_resume.pdf" class="contact-item" target="_blank">
       <div><p class="ci-label">Resume</p><p class="ci-value">Download PDF</p></div>
       <span class="ci-arrow">↓</span>
     </a>
@@ -813,7 +819,7 @@
 </section>
 
 <footer>
-  <p>© 2025 Zoe Maymon</p>
+  <p>© 2025 Zoë Maymon</p>
   <p>Satellite imagery: ESRI World Imagery (open tiles) &nbsp;·&nbsp; Built for GitHub Pages</p>
 </footer>
 
@@ -838,3 +844,4 @@
 </script>
 </body>
 </html>
+
