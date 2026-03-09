@@ -365,8 +365,8 @@
       background: white;
       padding: 6rem 2.5rem;
       display: grid;
-      grid-template-columns: 5fr 4fr;
-      gap: 5rem;
+      grid-template-columns: 4fr 3fr 4fr;
+      gap: 4rem;
       align-items: start;
     }
 
@@ -488,6 +488,122 @@
       align-items: center;
     }
     footer p { font-size: 0.7rem; color: rgba(255,255,255,0.18); letter-spacing: 0.03em; }
+
+    /* ── EDUCATION TIMELINE ── */
+    #education {
+      background: var(--ink);
+      padding: 5rem 2.5rem;
+    }
+
+    .edu-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .edu-pre {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .edu-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+      font-weight: 400;
+      color: white;
+      letter-spacing: -0.02em;
+    }
+
+    .edu-timeline {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      position: relative;
+    }
+
+    /* vertical rule between the two entries */
+    .edu-timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: rgba(255,255,255,0.08);
+      transform: translateX(-50%);
+    }
+
+    .edu-item {
+      padding: 2.5rem 3rem 2.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .edu-item:nth-child(2) {
+      padding: 2.5rem 0 2.5rem 3rem;
+      border-left: none;
+    }
+
+    .edu-logo-wrap {
+      width: 56px;
+      height: 56px;
+      border-radius: 4px;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+      margin-bottom: 1.5rem;
+    }
+
+    .edu-logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .edu-year {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .edu-degree {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+      font-weight: 400;
+      line-height: 1.25;
+      color: white;
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.01em;
+    }
+
+    .edu-school {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.75rem;
+    }
+
+    .edu-detail {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.32);
+      line-height: 1.65;
+    }
+
+    @media (max-width: 640px) {
+      .edu-timeline { grid-template-columns: 1fr; }
+      .edu-timeline::before { display: none; }
+      .edu-item,
+      .edu-item:nth-child(2) { padding: 2rem 0; border-left: none; }
+    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
@@ -722,6 +838,60 @@
       <p>I hold an active Secret security clearance and have experience working in cloud environments (AWS), enterprise GIS systems, and Linux/CentOS. When I'm not in ArcGIS, I'm probably writing a Python script to avoid ever having to do something manually twice.</p>
     </div>
   </div>
+
+  <!-- EDUCATION TIMELINE -->
+  <div class="edu-block">
+    <p class="edu-pre">Education</p>
+    <div class="edu-timeline">
+
+      <div class="edu-item">
+        <div class="edu-dot-col">
+          <div class="edu-logo-wrap">
+            <!-- Clark University wordmark red C -->
+            <img src="https://www.clarku.edu/wp-content/themes/clarku/assets/images/clark-university-logo.svg"
+                 alt="Clark University"
+                 onerror="this.replaceWith(document.getElementById('clark-fallback').content.cloneNode(true))">
+            <template id="clark-fallback">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <circle cx="14" cy="14" r="14" fill="#C8102E"/>
+                <text x="14" y="19" text-anchor="middle" font-family="serif" font-size="14" font-weight="700" fill="white">C</text>
+              </svg>
+            </template>
+          </div>
+        </div>
+        <div class="edu-body">
+          <p class="edu-year">2019 – 2021</p>
+          <p class="edu-degree">M.S. Geographic<br>Information Systems</p>
+          <p class="edu-school">Clark University</p>
+          <p class="edu-detail">Worcester, MA</p>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-dot-col">
+          <div class="edu-logo-wrap">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/UMBC_Athletics_logo.svg/240px-UMBC_Athletics_logo.svg.png"
+                 alt="UMBC"
+                 onerror="this.replaceWith(document.getElementById('umbc-fallback').content.cloneNode(true))">
+            <template id="umbc-fallback">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <circle cx="14" cy="14" r="14" fill="#000000"/>
+                <text x="14" y="19" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="700" fill="#FFC700">UMBC</text>
+              </svg>
+            </template>
+          </div>
+        </div>
+        <div class="edu-body">
+          <p class="edu-year">2013 – 2017</p>
+          <p class="edu-degree">B.S. Geography<br><span style="font-style:italic;font-size:0.9em;">Minor in Mathematics</span></p>
+          <p class="edu-school">University of Maryland,<br>Baltimore County</p>
+          <p class="edu-detail">Baltimore, MD</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <div class="about-right">
     <div class="skills-block">
       <div class="skills-block-title">GIS platforms</div>
@@ -768,6 +938,43 @@
         <span class="skill-chip">Linux / CentOS</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="edu-header">
+    <span class="edu-pre">Education</span>
+    <h2 class="edu-heading">Academic background</h2>
+  </div>
+  <div class="edu-timeline">
+
+    <div class="edu-item">
+      <div class="edu-logo-wrap">
+        <!-- Clark University official logo from clarku.edu CDN -->
+        <img src="https://cdn.clarku.edu/wp-content/themes/jonas/images/clark-logo-w-type-r-logo.svg"
+             alt="Clark University"
+             onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\'font-family:serif;font-size:11px;font-weight:700;color:#c8102e;text-align:center;line-height:1.2;\'>Clark<br>Univ.</span>'">
+      </div>
+      <p class="edu-year">Graduated June 2021</p>
+      <h3 class="edu-degree">M.S. Geographic<br>Information Systems</h3>
+      <p class="edu-school">Clark University &mdash; Worcester, MA</p>
+      <p class="edu-detail">Graduate research focused on remote sensing and spatial analysis. Completed GIS thesis and coursework in advanced geoprocessing, cartographic design, and spatial statistics.</p>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-logo-wrap">
+        <!-- UMBC official primary logo from styleguide.umbc.edu -->
+        <img src="https://styleguide.umbc.edu/wp-content/uploads/sites/113/2019/01/UMBC-primary-logo-RGB.png"
+             alt="UMBC"
+             onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\'font-family:serif;font-size:11px;font-weight:700;color:#f0b31c;text-align:center;line-height:1.2;\'>UMBC</span>'">
+      </div>
+      <p class="edu-year">Graduated May 2017</p>
+      <h3 class="edu-degree">B.S. Geography<br><span style="font-size:0.85em;color:rgba(255,255,255,0.45);">Minor in Mathematics</span></h3>
+      <p class="edu-school">University of Maryland, Baltimore County &mdash; Baltimore, MD</p>
+      <p class="edu-detail">Undergraduate focus on physical and human geography with quantitative methods. Served as GIS teaching assistant and conducted original research on broadband access and economic development.</p>
+    </div>
+
   </div>
 </section>
 
