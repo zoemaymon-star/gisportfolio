@@ -576,8 +576,8 @@
 
     .about-photo-wrap {
       width: 100%;
-      aspect-ratio: 3 / 4;
-      max-height: 420px;
+      aspect-ratio: 1 / 1;
+      max-width: 320px;
       overflow: hidden;
       margin-bottom: 1.75rem;
       background: var(--rule);
@@ -587,9 +587,9 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
+      object-position: center center;
       display: block;
-      filter: contrast(1.04) brightness(0.97);
+      filter: contrast(1.02) brightness(0.98);
       transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
     }
 
@@ -607,12 +607,12 @@
 
     .about-heading {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
       font-weight: 700;
       font-style: normal;
       line-height: 1.05;
       letter-spacing: -0.02em;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
     .about-heading em { font-style: italic; color: var(--muted); }
 
@@ -718,8 +718,6 @@
       align-items: center;
     }
     footer p { font-size: 0.7rem; color: rgba(255,255,255,0.18); letter-spacing: 0.03em; }
-
-
 
 
     /* ── NAV OFFSET FOR ALL SECTIONS ── */
@@ -857,7 +855,7 @@
       .project-row:nth-child(even) .proj-body  { order: 0; }
       .proj-thumb { aspect-ratio: 16/7; }
       #about { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-photo-wrap { max-height: 340px; }
+      .about-photo-wrap { max-width: 280px; }
       #contact { grid-template-columns: 1fr; gap: 3rem; }
       footer { flex-direction: column; gap: 0.4rem; text-align: center; }
     }
