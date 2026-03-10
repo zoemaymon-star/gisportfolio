@@ -234,7 +234,7 @@
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
     }
 
     .work-title {
@@ -365,8 +365,8 @@
     .portfolio-block-desc {
       font-size: 0.88rem;
       color: var(--muted);
-      margin-top: 0;
-      margin-bottom: 3rem;
+      margin-top: 0.5rem;
+      margin-bottom: 2.5rem;
       font-style: italic;
       line-height: 1.75;
     }
@@ -570,15 +570,16 @@
       padding: 5rem 2.5rem;
       display: grid;
       grid-template-columns: 4fr 3fr 4fr;
-      gap: 4rem;
+      gap: 3rem;
       align-items: start;
     }
 
     .about-photo-wrap {
       width: 100%;
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 3 / 4;
+      max-height: 420px;
       overflow: hidden;
-      margin-bottom: 2.25rem;
+      margin-bottom: 1.75rem;
       background: var(--rule);
     }
 
@@ -601,7 +602,7 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 1.2rem;
+      margin-bottom: 0.9rem;
     }
 
     .about-heading {
@@ -855,7 +856,8 @@
       .project-row:nth-child(even) .proj-thumb { order: 0; }
       .project-row:nth-child(even) .proj-body  { order: 0; }
       .proj-thumb { aspect-ratio: 16/7; }
-      #about { grid-template-columns: 1fr; gap: 3rem; }
+      #about { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-photo-wrap { max-height: 340px; }
       #contact { grid-template-columns: 1fr; gap: 3rem; }
       footer { flex-direction: column; gap: 0.4rem; text-align: center; }
     }
@@ -922,7 +924,7 @@
 <section id="about">
   <div class="about-left">
     <div class="about-photo-wrap">
-      <img src="https://media.licdn.com/dms/image/v2/D4E03AQE6knhe0HD7Jw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1673296689911?e=1774483200&v=beta&t=CfZsDURPo-8zvtv0xvt6SzokLv_jNjgonDGutmAIe1M" alt="Zoë Maymon" class="about-photo"
+      <img src="profile.jpg" alt="Zoë Maymon" class="about-photo"
            onerror="this.closest('.about-photo-wrap').style.display='none'">
     </div>
     <p class="about-pre">About</p>
