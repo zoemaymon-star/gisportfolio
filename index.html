@@ -566,8 +566,8 @@
       background: white;
       padding: clamp(3rem, 6vw, 5rem) 2.5rem;
       display: grid;
-      grid-template-columns: 3fr 2.5fr 3.5fr;
-      gap: 3.5rem;
+      grid-template-columns: 2.5fr 3fr 2fr 3fr;
+      gap: 3rem;
       align-items: start;
     }
 
@@ -619,6 +619,19 @@
       color: #3a3835;
     }
     .about-body p + p { margin-top: 1rem; }
+
+    .about-bio {
+      padding-top: 0;
+    }
+
+    .about-bio p {
+      font-size: 0.97rem;
+      font-weight: 400;
+      line-height: 1.95;
+      color: #3a3835;
+    }
+
+    .about-bio p + p { margin-top: 1rem; }
 
     .about-right { padding-top: 0; }
 
@@ -858,17 +871,18 @@
     /* ── RESPONSIVE: TABLET (≤ 1024px) ── */
     @media (max-width: 1024px) {
       #about { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
-      .about-left { grid-column: 1; grid-row: 1; }
-      .edu-block { grid-column: 2; grid-row: 1; }
-      .about-right { grid-column: 1 / -1; grid-row: 2; }
-      .about-photo-wrap { aspect-ratio: 3 / 2; }
+      .about-left  { grid-column: 1; grid-row: 1; }
+      .about-bio   { grid-column: 2; grid-row: 1; }
+      .edu-block   { grid-column: 1; grid-row: 2; }
+      .about-right { grid-column: 2; grid-row: 2; }
     }
 
     /* ── RESPONSIVE: LARGE MOBILE / SMALL TABLET (≤ 860px) ── */
     @media (max-width: 860px) {
       /* Sections: reduce padding */
       #intro, #experience, #contact { padding: 3.5rem 2rem; }
-      #about { padding: 3.5rem 2rem; grid-template-columns: 1fr; gap: 2.5rem; }
+      #about { padding: 3.5rem 2rem; grid-template-columns: 1fr; gap: 2rem; }
+      .about-bio, .edu-block, .about-right { grid-column: 1; }
       .portfolio-block { padding: 3.5rem 2rem; }
 
       /* Intro: stack label above text */
@@ -927,8 +941,8 @@
       .intro-text { font-size: clamp(1.15rem, 4.5vw, 1.5rem); }
 
       /* About: single column, photo full-width capped */
-      #about { padding: 3rem 1.25rem; gap: 2rem; }
-      .about-photo-wrap { aspect-ratio: 3 / 2; }
+      #about { padding: 3rem 1.25rem; gap: 1.75rem; }
+      .about-photo-wrap { aspect-ratio: 4 / 3; }
       .about-heading { font-size: clamp(1.6rem, 7vw, 2.2rem); margin-bottom: 1rem; }
       .about-body { font-size: 0.9rem; }
 
@@ -1017,11 +1031,12 @@
     </div>
     <p class="about-pre">About</p>
     <h2 class="about-heading">I turn messy<br>spatial data into<br><em>things that work.</em></h2>
-    <div class="about-body">
-      <p>GIS and data analytics specialist, Hyattsville MD. M.S. from Clark, B.S. from UMBC, about nine years of work that spans environmental consulting, public health, federal building sciences, and satellite imagery. It sounds scattered until you realize the common thread is spatial data that nobody's cleaned yet.</p>
-      <p>Most of my projects sit at the intersection of messy data and non-technical audiences. I like that problem. The analysis is rarely the hard part. Figuring out how to present dam safety data to a state agency, or fire trends to a policy team, usually is.</p>
-      <p>Active Secret clearance. Comfortable in AWS, enterprise GIS stacks, Linux. I write a lot of Python because doing the same thing twice feels like giving up.</p>
-    </div>
+  </div>
+
+  <div class="about-bio">
+    <p>GIS and data analytics specialist, Hyattsville MD. M.S. from Clark, B.S. from UMBC, about nine years of work that spans environmental consulting, public health, federal building sciences, and satellite imagery. It sounds scattered until you realize the common thread is spatial data that nobody's cleaned yet.</p>
+    <p>Most of my projects sit at the intersection of messy data and non-technical audiences. I like that problem. The analysis is rarely the hard part. Figuring out how to present dam safety data to a state agency, or fire trends to a policy team, usually is.</p>
+    <p>Active Secret clearance. Comfortable in AWS, enterprise GIS stacks, Linux. I write a lot of Python because doing the same thing twice feels like giving up.</p>
   </div>
 
   <!-- EDUCATION TIMELINE -->
