@@ -206,9 +206,31 @@
       color: white;
       padding: 5rem 2.5rem;
       display: grid;
-      grid-template-columns: 1fr 2.2fr;
+      grid-template-columns: 1fr 2.2fr 1fr;
       gap: 4rem;
-      align-items: start;
+      align-items: center;
+    }
+
+    .intro-photo-wrap {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      max-height: 380px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .intro-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: grayscale(20%) contrast(1.05) brightness(0.88);
+      transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+
+    .intro-photo-wrap:hover .intro-photo {
+      transform: scale(1.03);
     }
 
     .intro-label {
@@ -848,7 +870,8 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
-      #intro { grid-template-columns: 1fr; gap: 1.5rem; }
+      #intro { grid-template-columns: 1fr 2fr; gap: 2.5rem; }
+      .intro-photo-wrap { display: none; }
       .project-row,
       .project-row:nth-child(even) {
         grid-template-columns: 1fr;
@@ -918,16 +941,16 @@
     <span>GEE for fire analysis in Borneo, Power BI for building scientists
     who don't speak SQL, ArcPy for a state agency that was drowning in spreadsheets.</span>
   </p>
+  <div class="intro-photo-wrap">
+    <img src="profile.jpg" alt="Zoë Maymon" class="intro-photo"
+         onerror="this.closest('.intro-photo-wrap').style.display='none'">
+  </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
   <div class="about-left">
-    <div class="about-photo-wrap">
-      <img src="profile.jpg" alt="Zoë Maymon" class="about-photo"
-           onerror="this.closest('.about-photo-wrap').style.display='none'">
-    </div>
-    <p class="about-pre">About</p>
+<p class="about-pre">About</p>
     <h2 class="about-heading">I turn messy<br>spatial data into<br><em>things that work.</em></h2>
     <div class="about-body">
       <p>GIS and data analytics specialist, Hyattsville MD. M.S. from Clark, B.S. from UMBC, about nine years of work that spans environmental consulting, public health, federal building sciences, and satellite imagery. It sounds scattered until you realize the common thread is spatial data that nobody's cleaned yet.</p>
