@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
@@ -15,846 +14,864 @@
       --rule: rgba(26,24,20,0.13);
     }
 
-```
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: 'Lora', serif;
-  font-weight: 400;
-  line-height: 1.75;
-  overflow-x: hidden;
-}
-
-/* ── NAV ── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 200;
-  padding: 1.1rem 2.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-nav.scrolled {
-  background: rgba(240,237,230,0.94);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--rule);
-}
-
-.nav-name {
-  font-family: 'Lora', serif;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-nav.scrolled .nav-name { color: var(--ink); }
-
-.nav-right { display: flex; align-items: center; gap: 2rem; }
-
-.nav-right a {
-  font-size: 0.78rem;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.65);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-nav.scrolled .nav-right a { color: var(--muted); }
-.nav-right a:hover { color: var(--accent) !important; }
-
-.nav-cta {
-  padding: 0.45rem 1.1rem;
-  border: 1px solid rgba(255,255,255,0.3);
-  color: white !important;
-}
-nav.scrolled .nav-cta { border-color: var(--ink); color: var(--ink) !important; }
-.nav-cta:hover { background: var(--accent) !important; border-color: var(--accent) !important; color: white !important; }
-
-/* ── HERO ── */
-#hero {
-  position: relative;
-  height: 100vh;
-  min-height: 580px;
-  display: flex;
-  flex-direction: column;
-  padding: 6rem 2.5rem 3.5rem;
-  overflow: hidden;
-  background-color: #111312;
-  background-image:
-    radial-gradient(ellipse at 75% 35%, rgba(16,185,129,0.28) 0%, transparent 55%),
-    radial-gradient(ellipse at 25% 75%, rgba(16,185,129,0.12) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(15,18,16,1) 0%, transparent 100%);
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 3;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: end;
-  flex: 1;
-}
-
-
-.hero-constellation {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  min-height: 340px;
-}
-
-#skillCanvas {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-
-#hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(10,9,7,0.92) 0%, rgba(10,9,7,0.3) 55%, rgba(10,9,7,0.1) 100%);
-  z-index: 1;
-}
-
-.hero-content { position: relative; z-index: 3; max-width: 600px; align-self: end; }
-
-.hero-kicker {
-  font-size: 0.74rem;
-  font-weight: 400;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 1rem;
-}
-
-.hero-h1 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(3rem, 7vw, 6.5rem);
-  font-weight: 700;
-  font-style: normal;
-  line-height: 1.0;
-  color: #fff;
-  letter-spacing: -0.035em;
-}
-
-.hero-h1 em {
-  font-style: normal;
-  color: rgba(255,255,255,0.38);
-}
-
-.hero-sub {
-  margin-top: 1.5rem;
-  font-size: 1rem;
-  font-weight: 400;
-  color: rgba(255,255,255,0.55);
-  max-width: 460px;
-  line-height: 1.8;
-}
-
-.hero-bottom {
-  position: relative; z-index: 3;
-  margin-top: 2rem;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid rgba(255,255,255,0.12);
-  padding-top: 1.25rem;
-}
-
-.hero-scroll {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-}
-
-.scroll-line {
-  width: 40px; height: 1px;
-  background: rgba(255,255,255,0.2);
-  position: relative; overflow: hidden;
-}
-.scroll-line::after {
-  content: '';
-  position: absolute; top: 0; left: -100%;
-  width: 100%; height: 100%;
-  background: var(--accent);
-  animation: scan 2.2s ease-in-out infinite;
-}
-@keyframes scan { 0%{left:-100%} 100%{left:100%} }
-
-.hero-coords {
-  font-size: 0.68rem;
-  letter-spacing: 0.07em;
-  color: rgba(255,255,255,0.25);
-}
-
-/* ── INTRO STRIP ── */
-#intro {
-  background: var(--ink);
-  color: white;
-  padding: 5rem 2.5rem;
-  display: grid;
-  grid-template-columns: 1fr 2.2fr;
-  gap: 4rem;
-  align-items: start;
-}
-
-.intro-label {
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
-  padding-top: 0.4rem;
-}
-
-.intro-text {
-  font-family: 'Lora', serif;
-  font-size: clamp(1.45rem, 2.6vw, 2.1rem);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.65;
-  color: rgba(255,255,255,0.85);
-}
-.intro-text span { color: rgba(255,255,255,0.35); font-style: normal; }
-
-
-.work-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 0.75rem;
-}
-
-.work-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
-
-.work-count {
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-
-
-/* Project rows, alternating layout */
-.project-list { display: flex; flex-direction: column; }
-
-.project-row {
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  border-top: 1px solid var(--rule);
-  transition: background 0.25s;
-  cursor: pointer;
-}
-.project-row:last-child { border-bottom: 1px solid var(--rule); }
-.project-row:hover { background: rgba(255,255,255,0.6); }
-
-.project-row:nth-child(even) { grid-template-columns: 3fr 2fr; }
-.project-row:nth-child(even) .proj-thumb { order: 2; }
-.project-row:nth-child(even) .proj-body  { order: 1; }
-
-.proj-thumb {
-  overflow: hidden;
-  aspect-ratio: 4/3;
-  position: relative;
-}
-
-.proj-thumb-inner {
-  position: absolute; inset: 0;
-  overflow: hidden;
-  transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94);
-}
-.project-row:hover .proj-thumb-inner { transform: scale(1.04); }
-
-.proj-thumb-inner img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  filter: sepia(25%) contrast(1.05) brightness(0.85);
-  transition: filter 0.4s ease, opacity 0.4s ease;
-}
-
-.project-row:hover .proj-thumb-inner img {
-  filter: sepia(15%) contrast(1.1) brightness(0.95);
-}
-
-.proj-body {
-  padding: 2.25rem 2.25rem 2.25rem 2.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.project-row:nth-child(even) .proj-body { padding: 2.25rem 2.5rem 2.25rem 2.25rem; }
-
-.proj-type {
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 0.6rem;
-}
-
-.proj-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(1.15rem, 1.8vw, 1.6rem);
-  font-weight: 700;
-  line-height: 1.22;
-  letter-spacing: -0.01em;
-  margin-bottom: 0.9rem;
-}
-
-.proj-desc {
-  font-size: 0.9rem;
-  font-weight: 400;
-  line-height: 1.85;
-  color: #4a4740;
-  flex: 1;
-}
-
-.proj-footer {
-  margin-top: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.proj-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
-
-.ptag {
-  font-size: 0.67rem;
-  letter-spacing: 0.05em;
-  color: var(--muted);
-  background: rgba(26,24,20,0.06);
-  padding: 0.2rem 0.55rem;
-}
-
-
-
-/* ── PORTFOLIO BLOCKS ── */
-#portfolio { padding: 0; }
-
-.portfolio-block {
-  padding: 5rem 2.5rem;
-  background: var(--bg);
-}
-
-.personal-block {
-  background: white;
-  border-top: 1px solid var(--rule);
-}
-
-.portfolio-block-desc {
-  font-size: 0.88rem;
-  color: var(--muted);
-  margin-top: 0;
-  margin-bottom: 3rem;
-  font-style: italic;
-  line-height: 1.75;
-}
-
-/* ── PERSONAL PROJECT CARDS ── */
-.personal-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-}
-
-.personal-card {
-  border: 1px solid var(--rule);
-  padding: 1.75rem;
-  background: var(--bg);
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  transition: border-color 0.2s;
-}
-
-.personal-card:hover { border-color: var(--accent); }
-
-.personal-card.placeholder {
-  border-style: dashed;
-  background: transparent;
-}
-
-.pc-number {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--rule);
-  margin-bottom: 0.25rem;
-}
-
-.pc-status {
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 0.25rem;
-}
-
-.pc-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-  line-height: 1.25;
-}
-
-.placeholder .pc-title { color: var(--muted); }
-
-.pc-desc {
-  font-size: 0.8rem;
-  color: #888;
-  line-height: 1.75;
-  flex: 1;
-  font-style: italic;
-}
-
-.pc-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.5rem; }
-
-.placeholder .ptag {
-  background: transparent;
-  border-color: var(--rule);
-  color: var(--rule);
-}
-
-@media (max-width: 900px) {
-  .personal-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 540px) {
-  .personal-grid { grid-template-columns: 1fr; }
-  .portfolio-block { padding: 3rem 1.25rem; }
-}
-
-.exp-timeline {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-/* vertical spine */
-.exp-timeline::before {
-  content: '';
-  position: absolute;
-  left: 148px;
-  top: 8px; bottom: 8px;
-  width: 1px;
-  background: var(--rule);
-}
-
-.exp-item {
-  display: grid;
-  grid-template-columns: 140px 18px 1fr;
-  gap: 0 1.25rem;
-  padding-bottom: 3rem;
-  align-items: start;
-}
-
-.exp-item:last-child { padding-bottom: 0; }
-
-.exp-left {
-  text-align: right;
-  padding-top: 0.15rem;
-}
-
-.exp-dates {
-  font-size: 0.72rem;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  color: var(--muted);
-  white-space: nowrap;
-}
-
-.exp-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: white;
-  border: 2px solid var(--accent);
-  margin-top: 0.3rem;
-  flex-shrink: 0;
-  position: relative;
-  z-index: 1;
-  justify-self: center;
-}
-
-.exp-right { padding-bottom: 0.25rem; }
-
-.exp-role {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--ink);
-  line-height: 1.25;
-  margin-bottom: 0.2rem;
-  letter-spacing: -0.01em;
-}
-
-.exp-org {
-  font-size: 0.78rem;
-  font-weight: 400;
-  color: var(--accent);
-  margin-bottom: 0.85rem;
-  letter-spacing: 0.01em;
-}
-
-.exp-bullets {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 1rem;
-}
-
-.exp-bullets li {
-  font-size: 0.88rem;
-  font-weight: 400;
-  color: #3d3c3a;
-  line-height: 1.85;
-  padding-left: 1rem;
-  position: relative;
-}
-
-.exp-bullets li::before {
-  content: '–';
-  position: absolute;
-  left: 0;
-  color: var(--rule);
-}
-
-.exp-bullets li + li { margin-top: 0.55rem; }
-
-.exp-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-}
-
-.etag {
-  font-size: 0.67rem;
-  letter-spacing: 0.05em;
-  color: var(--muted);
-  background: rgba(26,24,20,0.05);
-  padding: 0.18rem 0.55rem;
-  border: 1px solid var(--rule);
-}
-
-@media (max-width: 640px) {
-  .exp-timeline::before { left: 0; }
-  .exp-item { grid-template-columns: 18px 1fr; gap: 0 1rem; }
-  .exp-left { display: none; }
-  .exp-right { padding-left: 0; }
-}
-#about {
-  background: white;
-  padding: 5rem 2.5rem;
-  display: grid;
-  grid-template-columns: 4fr 3fr 4fr;
-  gap: 4rem;
-  align-items: start;
-}
-
-.about-pre {
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 1.2rem;
-}
-
-.about-heading {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
-  font-weight: 700;
-  font-style: normal;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  margin-bottom: 2rem;
-}
-.about-heading em { font-style: italic; color: var(--muted); }
-
-.about-body {
-  font-size: 0.97rem;
-  font-weight: 400;
-  line-height: 1.95;
-  color: #3a3835;
-}
-.about-body p + p { margin-top: 1rem; }
-
-.about-right { padding-top: 0.25rem; }
-
-.skills-block + .skills-block { margin-top: 2.25rem; }
-
-.skills-block-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink);
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--rule);
-}
-
-.skills-inline { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-
-.skill-chip {
-  font-size: 0.8rem;
-  font-weight: 400;
-  padding: 0.3rem 0.75rem;
-  background: white;
-  border: 1px solid rgba(26,24,20,0.12);
-  color: #3a3835;
-}
-
-/* ── CONTACT ── */
-#contact {
-  background: var(--ink);
-  padding: 6rem 2.5rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: end;
-}
-
-.contact-heading {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2.6rem, 5vw, 4.2rem);
-  font-weight: 700;
-  font-style: normal;
-  line-height: 1.02;
-  color: white;
-  letter-spacing: -0.02em;
-  margin-bottom: 1.5rem;
-}
-.contact-heading em { font-style: italic; color: rgba(255,255,255,0.3); }
-
-.contact-note {
-  font-size: 0.92rem;
-  font-weight: 400;
-  color: rgba(255,255,255,0.62);
-  line-height: 1.85;
-  max-width: 360px;
-}
-
-.contact-right { display: flex; flex-direction: column; gap: 0.6rem; }
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 1.25rem;
-  border: 1px solid rgba(255,255,255,0.08);
-  text-decoration: none;
-  transition: border-color 0.2s, background 0.2s;
-}
-.contact-item:hover { border-color: var(--accent); background: rgba(16,185,129,0.05); }
-
-.ci-label {
-  font-size: 0.67rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
-  margin-bottom: 0.18rem;
-}
-.ci-value { font-size: 0.88rem; font-weight: 400; color: rgba(255,255,255,0.75); }
-
-.ci-arrow {
-  color: rgba(255,255,255,0.18);
-  transition: color 0.2s, transform 0.2s;
-}
-.contact-item:hover .ci-arrow { color: var(--accent); transform: translateX(3px); }
-
-/* ── FOOTER ── */
-footer {
-  background: #0e0d0b;
-  padding: 1.4rem 2.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-footer p { font-size: 0.7rem; color: rgba(255,255,255,0.18); letter-spacing: 0.03em; }
-
-
-
-
-/* ── NAV OFFSET FOR ALL SECTIONS ── */
-#about, #experience, #portfolio, #contact {
-  scroll-margin-top: 64px;
-}
-
-#experience {
-  padding: 5rem 2.5rem;
-  background: var(--bg);
-  border-bottom: 1px solid var(--rule);
-}
-
-
-.edu-block { padding-top: 0.25rem; }
-
-.edu-block .edu-pre {
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 1.75rem;
-}
-
-.edu-block .edu-timeline {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  grid-template-columns: none;
-}
-
-.edu-block .edu-timeline::before {
-  content: '';
-  position: absolute;
-  left: 20px;
-  top: 28px;
-  bottom: 28px;
-  width: 1px;
-  background: var(--rule);
-  transform: none;
-}
-
-.edu-block .edu-item {
-  display: grid;
-  grid-template-columns: 54px 1fr;
-  gap: 1rem;
-  padding: 0 0 2.25rem 0;
-  border-top: none;
-}
-
-.edu-block .edu-item:last-child { padding-bottom: 0; }
-.edu-block .edu-item:nth-child(2) { padding: 0; border-left: none; }
-
-.edu-dot-col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 2px;
-  position: relative;
-  z-index: 1;
-}
-
-.edu-block .edu-logo-wrap {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: white;
-  border: 1px solid var(--rule);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px;
-  margin-bottom: 0;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
-}
-
-.edu-block .edu-logo-wrap img {
-  width: 26px;
-  height: 26px;
-  object-fit: contain;
-}
-
-.edu-uni-name {
-  font-size: 0.58rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: var(--muted);
-  text-align: center;
-  line-height: 1.3;
-  margin-top: 0.35rem;
-}
-
-.edu-body { padding-top: 0.1rem; }
-
-.edu-block .edu-year {
-  font-size: 0.67rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 0.25rem;
-}
-
-.edu-block .edu-degree {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.98rem;
-  font-weight: 700;
-  line-height: 1.3;
-  color: var(--ink);
-  margin-bottom: 0.2rem;
-}
-
-.edu-block .edu-school {
-  font-size: 0.78rem;
-  font-weight: 400;
-  color: var(--muted);
-  margin-bottom: 0.2rem;
-}
-
-.edu-block .edu-detail {
-  font-size: 0.75rem;
-  font-weight: 400;
-  color: #aaa;
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 860px) {
-  #intro { grid-template-columns: 1fr; gap: 1.5rem; }
-  .project-row,
-  .project-row:nth-child(even) {
-    grid-template-columns: 1fr;
-  }
-  .project-row:nth-child(even) .proj-thumb { order: 0; }
-  .project-row:nth-child(even) .proj-body  { order: 0; }
-  .proj-thumb { aspect-ratio: 16/7; }
-  #about { grid-template-columns: 1fr; gap: 3rem; }
-  #contact { grid-template-columns: 1fr; gap: 3rem; }
-  footer { flex-direction: column; gap: 0.4rem; text-align: center; }
-}
-
-@media (max-width: 560px) {
-  nav { padding: 1rem 1.25rem; }
-  #hero, #experience, #portfolio, #about, #contact, #intro, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
-  .nav-right a:not(.nav-cta) { display: none; }
-  .hero-inner { grid-template-columns: 1fr; }
-  .hero-constellation { display: none; }
-}
-```
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Lora', serif;
+      font-weight: 400;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 1.1rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav.scrolled {
+      background: rgba(240,237,230,0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .nav-name {
+      font-family: 'Lora', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav.scrolled .nav-name { color: var(--ink); }
+
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
+
+    .nav-right a {
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    nav.scrolled .nav-right a { color: var(--muted); }
+    .nav-right a:hover { color: var(--accent) !important; }
+
+    .nav-cta {
+      padding: 0.45rem 1.1rem;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white !important;
+    }
+    nav.scrolled .nav-cta { border-color: var(--ink); color: var(--ink) !important; }
+    .nav-cta:hover { background: var(--accent) !important; border-color: var(--accent) !important; color: white !important; }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 580px;
+      display: flex;
+      flex-direction: column;
+      padding: 6rem 2.5rem 3.5rem;
+      overflow: hidden;
+      background-color: #111312;
+      background-image:
+        radial-gradient(ellipse at 75% 35%, rgba(16,185,129,0.28) 0%, transparent 55%),
+        radial-gradient(ellipse at 25% 75%, rgba(16,185,129,0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(15,18,16,1) 0%, transparent 100%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: end;
+      flex: 1;
+    }
+
+
+    .hero-constellation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      min-height: 340px;
+    }
+
+    #skillCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,9,7,0.92) 0%, rgba(10,9,7,0.3) 55%, rgba(10,9,7,0.1) 100%);
+      z-index: 1;
+    }
+
+    .hero-content { position: relative; z-index: 3; max-width: 600px; align-self: end; }
+
+    .hero-kicker {
+      font-size: 0.74rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .hero-h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3rem, 7vw, 6.5rem);
+      font-weight: 700;
+      font-style: normal;
+      line-height: 1.0;
+      color: #fff;
+      letter-spacing: -0.035em;
+    }
+
+    .hero-h1 em {
+      font-style: normal;
+      color: rgba(255,255,255,0.38);
+    }
+
+    .hero-sub {
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      max-width: 460px;
+      line-height: 1.8;
+    }
+
+    .hero-bottom {
+      position: relative; z-index: 3;
+      margin-top: 2rem;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 1.25rem;
+    }
+
+    .hero-scroll {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .scroll-line {
+      width: 40px; height: 1px;
+      background: rgba(255,255,255,0.2);
+      position: relative; overflow: hidden;
+    }
+    .scroll-line::after {
+      content: '';
+      position: absolute; top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: var(--accent);
+      animation: scan 2.2s ease-in-out infinite;
+    }
+    @keyframes scan { 0%{left:-100%} 100%{left:100%} }
+
+    .hero-coords {
+      font-size: 0.68rem;
+      letter-spacing: 0.07em;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* ── INTRO STRIP ── */
+    #intro {
+      background: var(--ink);
+      color: white;
+      padding: 5rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 2.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .intro-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding-top: 0.4rem;
+    }
+
+    .intro-text {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.45rem, 2.6vw, 2.1rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.85);
+    }
+    .intro-text span { color: rgba(255,255,255,0.35); font-style: normal; }
+
+
+    .work-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+
+    .work-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .work-count {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+
+
+    /* Project rows, alternating layout */
+    .project-list { display: flex; flex-direction: column; }
+
+    .project-row {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      border-top: 1px solid var(--rule);
+      transition: background 0.25s;
+      cursor: pointer;
+    }
+    .project-row:last-child { border-bottom: 1px solid var(--rule); }
+    .project-row:hover { background: rgba(255,255,255,0.6); }
+
+    .project-row:nth-child(even) { grid-template-columns: 3fr 2fr; }
+    .project-row:nth-child(even) .proj-thumb { order: 2; }
+    .project-row:nth-child(even) .proj-body  { order: 1; }
+
+    .proj-thumb {
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      position: relative;
+    }
+
+    .proj-thumb-inner {
+      position: absolute; inset: 0;
+      overflow: hidden;
+      transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .project-row:hover .proj-thumb-inner { transform: scale(1.04); }
+
+    .proj-thumb-inner img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      filter: sepia(25%) contrast(1.05) brightness(0.85);
+      transition: filter 0.4s ease, opacity 0.4s ease;
+    }
+
+    .project-row:hover .proj-thumb-inner img {
+      filter: sepia(15%) contrast(1.1) brightness(0.95);
+    }
+
+    .proj-body {
+      padding: 2.25rem 2.25rem 2.25rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .project-row:nth-child(even) .proj-body { padding: 2.25rem 2.5rem 2.25rem 2.25rem; }
+
+    .proj-type {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .proj-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.15rem, 1.8vw, 1.6rem);
+      font-weight: 700;
+      line-height: 1.22;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.9rem;
+    }
+
+    .proj-desc {
+      font-size: 0.9rem;
+      font-weight: 400;
+      line-height: 1.85;
+      color: #4a4740;
+      flex: 1;
+    }
+
+    .proj-footer {
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .proj-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+
+    .ptag {
+      font-size: 0.67rem;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      background: rgba(26,24,20,0.06);
+      padding: 0.2rem 0.55rem;
+    }
+
+
+
+    /* ── PORTFOLIO BLOCKS ── */
+    #portfolio { padding: 0; }
+
+    .portfolio-block {
+      padding: 5rem 2.5rem;
+      background: var(--bg);
+    }
+
+    .personal-block {
+      background: white;
+      border-top: 1px solid var(--rule);
+    }
+
+    .portfolio-block-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-top: 0;
+      margin-bottom: 3rem;
+      font-style: italic;
+      line-height: 1.75;
+    }
+
+    /* ── PERSONAL PROJECT CARDS ── */
+    .personal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .personal-card {
+      border: 1px solid var(--rule);
+      padding: 1.75rem;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .personal-card:hover { border-color: var(--accent); }
+
+    .personal-card.placeholder {
+      border-style: dashed;
+      background: transparent;
+    }
+
+    .pc-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--rule);
+      margin-bottom: 0.25rem;
+    }
+
+    .pc-status {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .pc-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+
+    .placeholder .pc-title { color: var(--muted); }
+
+    .pc-desc {
+      font-size: 0.8rem;
+      color: #888;
+      line-height: 1.75;
+      flex: 1;
+      font-style: italic;
+    }
+
+    .pc-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.5rem; }
+
+    .placeholder .ptag {
+      background: transparent;
+      border-color: var(--rule);
+      color: var(--rule);
+    }
+
+    @media (max-width: 900px) {
+      .personal-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 540px) {
+      .personal-grid { grid-template-columns: 1fr; }
+      .portfolio-block { padding: 3rem 1.25rem; }
+    }
+
+    .exp-timeline {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* vertical spine */
+    .exp-timeline::before {
+      content: '';
+      position: absolute;
+      left: 148px;
+      top: 8px; bottom: 8px;
+      width: 1px;
+      background: var(--rule);
+    }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 140px 18px 1fr;
+      gap: 0 1.25rem;
+      padding-bottom: 3rem;
+      align-items: start;
+    }
+
+    .exp-item:last-child { padding-bottom: 0; }
+
+    .exp-left {
+      text-align: right;
+      padding-top: 0.15rem;
+    }
+
+    .exp-dates {
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .exp-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid var(--accent);
+      margin-top: 0.3rem;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      justify-self: center;
+    }
+
+    .exp-right { padding-bottom: 0.25rem; }
+
+    .exp-role {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 0.2rem;
+      letter-spacing: -0.01em;
+    }
+
+    .exp-org {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--accent);
+      margin-bottom: 0.85rem;
+      letter-spacing: 0.01em;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+
+    .exp-bullets li {
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: #3d3c3a;
+      line-height: 1.85;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .exp-bullets li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--rule);
+    }
+
+    .exp-bullets li + li { margin-top: 0.55rem; }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .etag {
+      font-size: 0.67rem;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      background: rgba(26,24,20,0.05);
+      padding: 0.18rem 0.55rem;
+      border: 1px solid var(--rule);
+    }
+
+    @media (max-width: 640px) {
+      .exp-timeline::before { left: 0; }
+      .exp-item { grid-template-columns: 18px 1fr; gap: 0 1rem; }
+      .exp-left { display: none; }
+      .exp-right { padding-left: 0; }
+    }
+    #about {
+      background: white;
+      padding: 5rem 2.5rem;
+      display: grid;
+      grid-template-columns: 4fr 3fr 4fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-photo-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      margin-bottom: 2.25rem;
+      background: var(--rule);
+    }
+
+    .about-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: contrast(1.04) brightness(0.97);
+      transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+
+    .about-photo-wrap:hover .about-photo {
+      transform: scale(1.025);
+    }
+
+    .about-pre {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+
+    .about-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+      font-weight: 700;
+      font-style: normal;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+    }
+    .about-heading em { font-style: italic; color: var(--muted); }
+
+    .about-body {
+      font-size: 0.97rem;
+      font-weight: 400;
+      line-height: 1.95;
+      color: #3a3835;
+    }
+    .about-body p + p { margin-top: 1rem; }
+
+    .about-right { padding-top: 0.25rem; }
+
+    .skills-block + .skills-block { margin-top: 2.25rem; }
+
+    .skills-block-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .skills-inline { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+
+    .skill-chip {
+      font-size: 0.8rem;
+      font-weight: 400;
+      padding: 0.3rem 0.75rem;
+      background: white;
+      border: 1px solid rgba(26,24,20,0.12);
+      color: #3a3835;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--ink);
+      padding: 6rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+    }
+
+    .contact-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 700;
+      font-style: normal;
+      line-height: 1.02;
+      color: white;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .contact-heading em { font-style: italic; color: rgba(255,255,255,0.3); }
+
+    .contact-note {
+      font-size: 0.92rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.85;
+      max-width: 360px;
+    }
+
+    .contact-right { display: flex; flex-direction: column; gap: 0.6rem; }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .contact-item:hover { border-color: var(--accent); background: rgba(16,185,129,0.05); }
+
+    .ci-label {
+      font-size: 0.67rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 0.18rem;
+    }
+    .ci-value { font-size: 0.88rem; font-weight: 400; color: rgba(255,255,255,0.75); }
+
+    .ci-arrow {
+      color: rgba(255,255,255,0.18);
+      transition: color 0.2s, transform 0.2s;
+    }
+    .contact-item:hover .ci-arrow { color: var(--accent); transform: translateX(3px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0e0d0b;
+      padding: 1.4rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer p { font-size: 0.7rem; color: rgba(255,255,255,0.18); letter-spacing: 0.03em; }
+
+
+
+
+    /* ── NAV OFFSET FOR ALL SECTIONS ── */
+    #about, #experience, #portfolio, #contact {
+      scroll-margin-top: 64px;
+    }
+
+    #experience {
+      padding: 5rem 2.5rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--rule);
+    }
+
+
+    .edu-block { padding-top: 0.25rem; }
+
+    .edu-block .edu-pre {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.75rem;
+    }
+
+    .edu-block .edu-timeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      grid-template-columns: none;
+    }
+
+    .edu-block .edu-timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 28px;
+      bottom: 28px;
+      width: 1px;
+      background: var(--rule);
+      transform: none;
+    }
+
+    .edu-block .edu-item {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 1rem;
+      padding: 0 0 2.25rem 0;
+      border-top: none;
+    }
+
+    .edu-block .edu-item:last-child { padding-bottom: 0; }
+    .edu-block .edu-item:nth-child(2) { padding: 0; border-left: none; }
+
+    .edu-dot-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 2px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .edu-block .edu-logo-wrap {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: white;
+      border: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px;
+      margin-bottom: 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+
+    .edu-block .edu-logo-wrap img {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+    }
+
+    .edu-uni-name {
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.3;
+      margin-top: 0.35rem;
+    }
+
+    .edu-body { padding-top: 0.1rem; }
+
+    .edu-block .edu-year {
+      font-size: 0.67rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .edu-block .edu-degree {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+
+    .edu-block .edu-school {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .edu-block .edu-detail {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: #aaa;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      #intro { grid-template-columns: 1fr; gap: 1.5rem; }
+      .project-row,
+      .project-row:nth-child(even) {
+        grid-template-columns: 1fr;
+      }
+      .project-row:nth-child(even) .proj-thumb { order: 0; }
+      .project-row:nth-child(even) .proj-body  { order: 0; }
+      .proj-thumb { aspect-ratio: 16/7; }
+      #about { grid-template-columns: 1fr; gap: 3rem; }
+      #contact { grid-template-columns: 1fr; gap: 3rem; }
+      footer { flex-direction: column; gap: 0.4rem; text-align: center; }
+    }
+
+    @media (max-width: 560px) {
+      nav { padding: 1rem 1.25rem; }
+      #hero, #experience, #portfolio, #about, #contact, #intro, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .nav-right a:not(.nav-cta) { display: none; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-constellation { display: none; }
+    }
   </style>
 </head>
 <body>
 
 <!-- NAV -->
-
 <nav id="main-nav">
   <a href="#hero" class="nav-name">Zoë Maymon</a>
   <div class="nav-right">
@@ -866,7 +883,6 @@ footer p { font-size: 0.7rem; color: rgba(255,255,255,0.18); letter-spacing: 0.0
 </nav>
 
 <!-- HERO -->
-
 <section id="hero">
 
   <div class="hero-inner">
@@ -876,12 +892,9 @@ footer p { font-size: 0.7rem; color: rgba(255,255,255,0.18); letter-spacing: 0.0
       <p class="hero-sub">Maps, spatial tools, and automated pipelines, built for people who need to understand where things are happening and why it matters.</p>
     </div>
 
-```
-<div class="hero-constellation">
-  <canvas id="skillCanvas"></canvas>
-</div>
-```
-
+    <div class="hero-constellation">
+      <canvas id="skillCanvas"></canvas>
+    </div>
   </div>
 
   <div class="hero-bottom">
@@ -894,7 +907,6 @@ footer p { font-size: 0.7rem; color: rgba(255,255,255,0.18); letter-spacing: 0.0
 </section>
 
 <!-- INTRO -->
-
 <section id="intro">
   <div class="intro-label">What I do</div>
   <p class="intro-text">
@@ -907,9 +919,12 @@ footer p { font-size: 0.7rem; color: rgba(255,255,255,0.18); letter-spacing: 0.0
 </section>
 
 <!-- ABOUT -->
-
 <section id="about">
   <div class="about-left">
+    <div class="about-photo-wrap">
+      <img src="https://media.licdn.com/dms/image/v2/D4E03AQE6knhe0HD7Jw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1673296689911?e=1774483200&v=beta&t=CfZsDURPo-8zvtv0xvt6SzokLv_jNjgonDGutmAIe1M" alt="Zoë Maymon" class="about-photo"
+           onerror="this.closest('.about-photo-wrap').style.display='none'">
+    </div>
     <p class="about-pre">About</p>
     <h2 class="about-heading">I turn messy<br>spatial data into<br><em>things that work.</em></h2>
     <div class="about-body">
@@ -920,62 +935,58 @@ footer p { font-size: 0.7rem; color: rgba(255,255,255,0.18); letter-spacing: 0.0
   </div>
 
   <!-- EDUCATION TIMELINE -->
-
   <div class="edu-block">
     <p class="edu-pre">Education</p>
     <div class="edu-timeline">
 
-```
-  <div class="edu-item">
-    <div class="edu-dot-col">
-      <div class="edu-logo-wrap">
-        <!-- Clark University wordmark red C -->
-        <img src="https://www.clarku.edu/wp-content/themes/clarku/assets/images/clark-university-logo.svg"
-             alt="Clark University"
-             onerror="this.replaceWith(document.getElementById('clark-fallback').content.cloneNode(true))">
-        <template id="clark-fallback">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-            <circle cx="14" cy="14" r="14" fill="#C8102E"/>
-            <text x="14" y="19" text-anchor="middle" font-family="serif" font-size="14" font-weight="700" fill="white">C</text>
-          </svg>
-        </template>
+      <div class="edu-item">
+        <div class="edu-dot-col">
+          <div class="edu-logo-wrap">
+            <!-- Clark University wordmark red C -->
+            <img src="https://www.clarku.edu/wp-content/themes/clarku/assets/images/clark-university-logo.svg"
+                 alt="Clark University"
+                 onerror="this.replaceWith(document.getElementById('clark-fallback').content.cloneNode(true))">
+            <template id="clark-fallback">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <circle cx="14" cy="14" r="14" fill="#C8102E"/>
+                <text x="14" y="19" text-anchor="middle" font-family="serif" font-size="14" font-weight="700" fill="white">C</text>
+              </svg>
+            </template>
+          </div>
+          <p class="edu-uni-name">Clark<br>University</p>
+        </div>
+        <div class="edu-body">
+          <p class="edu-year">2019 – 2021</p>
+          <p class="edu-degree">M.S. Geographic<br>Information Systems</p>
+          <p class="edu-school">Clark University</p>
+          <p class="edu-detail">Worcester, MA</p>
+        </div>
       </div>
-      <p class="edu-uni-name">Clark<br>University</p>
-    </div>
-    <div class="edu-body">
-      <p class="edu-year">2019 – 2021</p>
-      <p class="edu-degree">M.S. Geographic<br>Information Systems</p>
-      <p class="edu-school">Clark University</p>
-      <p class="edu-detail">Worcester, MA</p>
-    </div>
-  </div>
 
-  <div class="edu-item">
-    <div class="edu-dot-col">
-      <div class="edu-logo-wrap">
-        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/UMBC_Athletics_logo.svg/240px-UMBC_Athletics_logo.svg.png"
-             alt="UMBC"
-             onerror="this.replaceWith(document.getElementById('umbc-fallback').content.cloneNode(true))">
-        <template id="umbc-fallback">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-            <circle cx="14" cy="14" r="14" fill="#000000"/>
-            <text x="14" y="19" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="700" fill="#FFC700">UMBC</text>
-          </svg>
-        </template>
+      <div class="edu-item">
+        <div class="edu-dot-col">
+          <div class="edu-logo-wrap">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/UMBC_Athletics_logo.svg/240px-UMBC_Athletics_logo.svg.png"
+                 alt="UMBC"
+                 onerror="this.replaceWith(document.getElementById('umbc-fallback').content.cloneNode(true))">
+            <template id="umbc-fallback">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <circle cx="14" cy="14" r="14" fill="#000000"/>
+                <text x="14" y="19" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="700" fill="#FFC700">UMBC</text>
+              </svg>
+            </template>
+          </div>
+          <p class="edu-uni-name">UMBC</p>
+        </div>
+        <div class="edu-body">
+          <p class="edu-year">2013 – 2017</p>
+          <p class="edu-degree">B.S. Geography<br><span style="font-style:italic;font-size:0.9em;">Minor in Mathematics</span></p>
+          <p class="edu-school">University of Maryland,<br>Baltimore County</p>
+          <p class="edu-detail">Baltimore, MD</p>
+        </div>
       </div>
-      <p class="edu-uni-name">UMBC</p>
-    </div>
-    <div class="edu-body">
-      <p class="edu-year">2013 – 2017</p>
-      <p class="edu-degree">B.S. Geography<br><span style="font-style:italic;font-size:0.9em;">Minor in Mathematics</span></p>
-      <p class="edu-school">University of Maryland,<br>Baltimore County</p>
-      <p class="edu-detail">Baltimore, MD</p>
-    </div>
-  </div>
 
-</div>
-```
-
+    </div>
   </div>
 
   <div class="about-right">
@@ -1027,8 +1038,8 @@ footer p { font-size: 0.7rem; color: rgba(255,255,255,0.18); letter-spacing: 0.0
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 
+<!-- EXPERIENCE -->
 <section id="experience">
   <div class="work-header">
     <h2 class="work-title">Experience</h2>
@@ -1037,126 +1048,122 @@ footer p { font-size: 0.7rem; color: rgba(255,255,255,0.18); letter-spacing: 0.0
 
   <div class="exp-timeline">
 
-```
-<div class="exp-item">
-  <div class="exp-left">
-    <span class="exp-dates">Aug 2021 – Oct 2025</span>
-  </div>
-  <div class="exp-dot"></div>
-  <div class="exp-right">
-    <p class="exp-role">BIM Data Analyst</p>
-    <p class="exp-org">National Institute of Building Sciences, Washington, D.C.</p>
-    <ul class="exp-bullets">
-      <li>Designed Power BI dashboards and paginated reports so project managers could track BIM compliance without opening a spreadsheet</li>
-      <li>Built Power Automate workflows to handle report distribution, which dropped manual processing time by about 40%</li>
-      <li>Kept technical documentation tight enough that anyone on the team could reproduce outputs without asking me</li>
-      <li>Sat between the geospatial team and everyone else, which mostly meant translating</li>
-    </ul>
-    <div class="exp-tags">
-      <span class="etag">Power BI</span><span class="etag">Power Automate</span><span class="etag">ArcGIS Online</span><span class="etag">PostGIS</span>
+    <div class="exp-item">
+      <div class="exp-left">
+        <span class="exp-dates">Aug 2021 – Oct 2025</span>
+      </div>
+      <div class="exp-dot"></div>
+      <div class="exp-right">
+        <p class="exp-role">BIM Data Analyst</p>
+        <p class="exp-org">National Institute of Building Sciences, Washington, D.C.</p>
+        <ul class="exp-bullets">
+          <li>Designed Power BI dashboards and paginated reports so project managers could track BIM compliance without opening a spreadsheet</li>
+          <li>Built Power Automate workflows to handle report distribution, which dropped manual processing time by about 40%</li>
+          <li>Kept technical documentation tight enough that anyone on the team could reproduce outputs without asking me</li>
+          <li>Sat between the geospatial team and everyone else, which mostly meant translating</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="etag">Power BI</span><span class="etag">Power Automate</span><span class="etag">ArcGIS Online</span><span class="etag">PostGIS</span>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<div class="exp-item">
-  <div class="exp-left">
-    <span class="exp-dates">Mar – Jun 2021</span>
-  </div>
-  <div class="exp-dot"></div>
-  <div class="exp-right">
-    <p class="exp-role">GIS Consultant</p>
-    <p class="exp-org">EcoHealth Alliance, Remote</p>
-    <ul class="exp-bullets">
-      <li>Pulled a decade of fire and aerosol data (2010–2020) across Indonesia using Google Earth Engine and JavaScript. More data than you'd want to handle locally</li>
-      <li>Turned the analysis into visual reports that could actually land with a policy audience, not just other analysts</li>
-    </ul>
-    <div class="exp-tags">
-      <span class="etag">Google Earth Engine</span><span class="etag">JavaScript</span><span class="etag">Remote Sensing</span>
+    <div class="exp-item">
+      <div class="exp-left">
+        <span class="exp-dates">Mar – Jun 2021</span>
+      </div>
+      <div class="exp-dot"></div>
+      <div class="exp-right">
+        <p class="exp-role">GIS Consultant</p>
+        <p class="exp-org">EcoHealth Alliance, Remote</p>
+        <ul class="exp-bullets">
+          <li>Pulled a decade of fire and aerosol data (2010–2020) across Indonesia using Google Earth Engine and JavaScript. More data than you'd want to handle locally</li>
+          <li>Turned the analysis into visual reports that could actually land with a policy audience, not just other analysts</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="etag">Google Earth Engine</span><span class="etag">JavaScript</span><span class="etag">Remote Sensing</span>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<div class="exp-item">
-  <div class="exp-left">
-    <span class="exp-dates">May – Aug 2020</span>
-  </div>
-  <div class="exp-dot"></div>
-  <div class="exp-right">
-    <p class="exp-role">Remote Sensing Intern</p>
-    <p class="exp-org">DigitalGlobe (Maxar), Remote</p>
-    <ul class="exp-bullets">
-      <li>QA'd satellite imagery mosaics: checking spatial accuracy, integrating ground control points, flagging anything that didn't line up</li>
-      <li>Worked out of an AWS environment managing large imagery datasets and testing internal processing software</li>
-    </ul>
-    <div class="exp-tags">
-      <span class="etag">AWS (S3, EC2)</span><span class="etag">Satellite Imagery</span><span class="etag">QA/QC</span>
+    <div class="exp-item">
+      <div class="exp-left">
+        <span class="exp-dates">May – Aug 2020</span>
+      </div>
+      <div class="exp-dot"></div>
+      <div class="exp-right">
+        <p class="exp-role">Remote Sensing Intern</p>
+        <p class="exp-org">DigitalGlobe (Maxar), Remote</p>
+        <ul class="exp-bullets">
+          <li>QA'd satellite imagery mosaics: checking spatial accuracy, integrating ground control points, flagging anything that didn't line up</li>
+          <li>Worked out of an AWS environment managing large imagery datasets and testing internal processing software</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="etag">AWS (S3, EC2)</span><span class="etag">Satellite Imagery</span><span class="etag">QA/QC</span>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<div class="exp-item">
-  <div class="exp-left">
-    <span class="exp-dates">Aug 2018 – Aug 2019</span>
-  </div>
-  <div class="exp-dot"></div>
-  <div class="exp-right">
-    <p class="exp-role">GIS Intern</p>
-    <p class="exp-org">Maryland Department of the Environment, Baltimore, MD</p>
-    <ul class="exp-bullets">
-      <li>Wrote Python scripts to automate data queries for Stormwater and Dam Safety, less manual pulling, better database hygiene</li>
-      <li>Went out on field inspections and used the spatial analysis to back up compliance reports for state environmental regs</li>
-    </ul>
-    <div class="exp-tags">
-      <span class="etag">Python / ArcPy</span><span class="etag">ArcGIS Pro</span><span class="etag">Geodatabases</span>
+    <div class="exp-item">
+      <div class="exp-left">
+        <span class="exp-dates">Aug 2018 – Aug 2019</span>
+      </div>
+      <div class="exp-dot"></div>
+      <div class="exp-right">
+        <p class="exp-role">GIS Intern</p>
+        <p class="exp-org">Maryland Department of the Environment, Baltimore, MD</p>
+        <ul class="exp-bullets">
+          <li>Wrote Python scripts to automate data queries for Stormwater and Dam Safety, less manual pulling, better database hygiene</li>
+          <li>Went out on field inspections and used the spatial analysis to back up compliance reports for state environmental regs</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="etag">Python / ArcPy</span><span class="etag">ArcGIS Pro</span><span class="etag">Geodatabases</span>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<div class="exp-item">
-  <div class="exp-left">
-    <span class="exp-dates">2017 – 2021</span>
-  </div>
-  <div class="exp-dot"></div>
-  <div class="exp-right">
-    <p class="exp-role">Teaching &amp; Research Roles</p>
-    <p class="exp-org">Clark University &amp; UMBC</p>
-    <ul class="exp-bullets">
-      <li>TA'd GIS and Remote Sensing at Clark. Ran labs, graded work, helped students get comfortable in ArcGIS and TerrSet</li>
-      <li>Research project at U of Baltimore mapping broadband gaps against economic indicators using Census data and ArcGIS</li>
-    </ul>
-    <div class="exp-tags">
-      <span class="etag">ArcGIS</span><span class="etag">TerrSet</span><span class="etag">Census Data</span>
+    <div class="exp-item">
+      <div class="exp-left">
+        <span class="exp-dates">2017 – 2021</span>
+      </div>
+      <div class="exp-dot"></div>
+      <div class="exp-right">
+        <p class="exp-role">Teaching &amp; Research Roles</p>
+        <p class="exp-org">Clark University &amp; UMBC</p>
+        <ul class="exp-bullets">
+          <li>TA'd GIS and Remote Sensing at Clark. Ran labs, graded work, helped students get comfortable in ArcGIS and TerrSet</li>
+          <li>Research project at U of Baltimore mapping broadband gaps against economic indicators using Census data and ArcGIS</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="etag">ArcGIS</span><span class="etag">TerrSet</span><span class="etag">Census Data</span>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<div class="exp-item">
-  <div class="exp-left">
-    <span class="exp-dates">Oct – Dec 2016</span>
-  </div>
-  <div class="exp-dot"></div>
-  <div class="exp-right">
-    <p class="exp-role">GIS Intern, Office of Overdose Prevention</p>
-    <p class="exp-org">Maryland Department of Health, Catonsville, MD</p>
-    <ul class="exp-bullets">
-      <li>Mapped opioid overdose data for the Office of Overdose Prevention: choropleth maps, point data, shapefiles set up for ArcGIS Server</li>
-    </ul>
-    <div class="exp-tags">
-      <span class="etag">ArcGIS Server</span><span class="etag">Public Health GIS</span><span class="etag">Shapefiles</span>
+    <div class="exp-item">
+      <div class="exp-left">
+        <span class="exp-dates">Oct – Dec 2016</span>
+      </div>
+      <div class="exp-dot"></div>
+      <div class="exp-right">
+        <p class="exp-role">GIS Intern, Office of Overdose Prevention</p>
+        <p class="exp-org">Maryland Department of Health, Catonsville, MD</p>
+        <ul class="exp-bullets">
+          <li>Mapped opioid overdose data for the Office of Overdose Prevention: choropleth maps, point data, shapefiles set up for ArcGIS Server</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="etag">ArcGIS Server</span><span class="etag">Public Health GIS</span><span class="etag">Shapefiles</span>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-```
 
   </div>
 </section>
 
 <!-- PORTFOLIO -->
-
 <section id="portfolio">
 
   <!-- PERSONAL PROJECTS -->
-
   <div class="portfolio-block personal-block maps-block">
     <div class="work-header">
       <h2 class="work-title">Maps &amp; Visualizations</h2>
@@ -1164,71 +1171,68 @@ footer p { font-size: 0.7rem; color: rgba(255,255,255,0.18); letter-spacing: 0.0
     </div>
     <p class="portfolio-block-desc">Maps, visualizations, and spatial experiments built outside of work. Swap placeholders out as projects are ready.</p>
 
-```
-<div class="personal-grid">
+    <div class="personal-grid">
 
-  <div class="personal-card placeholder">
-    <div class="pc-number">01</div>
-    <p class="pc-status">Coming soon</p>
-    <h3 class="pc-title">Project title</h3>
-    <p class="pc-desc">Replace this with a short description of what you're building and what problem it solves.</p>
-    <div class="pc-tags">
-      <span class="ptag">Tool</span>
-      <span class="ptag">Tool</span>
+      <div class="personal-card placeholder">
+        <div class="pc-number">01</div>
+        <p class="pc-status">Coming soon</p>
+        <h3 class="pc-title">Project title</h3>
+        <p class="pc-desc">Replace this with a short description of what you're building and what problem it solves.</p>
+        <div class="pc-tags">
+          <span class="ptag">Tool</span>
+          <span class="ptag">Tool</span>
+        </div>
+      </div>
+
+      <div class="personal-card placeholder">
+        <div class="pc-number">02</div>
+        <p class="pc-status">Coming soon</p>
+        <h3 class="pc-title">Project title</h3>
+        <p class="pc-desc">Replace this with a short description of what you're building and what problem it solves.</p>
+        <div class="pc-tags">
+          <span class="ptag">Tool</span>
+          <span class="ptag">Tool</span>
+        </div>
+      </div>
+
+      <div class="personal-card placeholder">
+        <div class="pc-number">03</div>
+        <p class="pc-status">Coming soon</p>
+        <h3 class="pc-title">Project title</h3>
+        <p class="pc-desc">Replace this with a short description of what you're building and what problem it solves.</p>
+        <div class="pc-tags">
+          <span class="ptag">Tool</span>
+          <span class="ptag">Tool</span>
+        </div>
+      </div>
+
+      <div class="personal-card placeholder">
+        <div class="pc-number">04</div>
+        <p class="pc-status">Coming soon</p>
+        <h3 class="pc-title">Project title</h3>
+        <p class="pc-desc">Replace this with a short description of what you're building and what problem it solves.</p>
+        <div class="pc-tags">
+          <span class="ptag">Tool</span>
+          <span class="ptag">Tool</span>
+        </div>
+      </div>
+
+      <div class="personal-card placeholder">
+        <div class="pc-number">05</div>
+        <p class="pc-status">Coming soon</p>
+        <h3 class="pc-title">Project title</h3>
+        <p class="pc-desc">Replace this with a short description of what you're building and what problem it solves.</p>
+        <div class="pc-tags">
+          <span class="ptag">Tool</span>
+          <span class="ptag">Tool</span>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <div class="personal-card placeholder">
-    <div class="pc-number">02</div>
-    <p class="pc-status">Coming soon</p>
-    <h3 class="pc-title">Project title</h3>
-    <p class="pc-desc">Replace this with a short description of what you're building and what problem it solves.</p>
-    <div class="pc-tags">
-      <span class="ptag">Tool</span>
-      <span class="ptag">Tool</span>
-    </div>
-  </div>
-
-  <div class="personal-card placeholder">
-    <div class="pc-number">03</div>
-    <p class="pc-status">Coming soon</p>
-    <h3 class="pc-title">Project title</h3>
-    <p class="pc-desc">Replace this with a short description of what you're building and what problem it solves.</p>
-    <div class="pc-tags">
-      <span class="ptag">Tool</span>
-      <span class="ptag">Tool</span>
-    </div>
-  </div>
-
-  <div class="personal-card placeholder">
-    <div class="pc-number">04</div>
-    <p class="pc-status">Coming soon</p>
-    <h3 class="pc-title">Project title</h3>
-    <p class="pc-desc">Replace this with a short description of what you're building and what problem it solves.</p>
-    <div class="pc-tags">
-      <span class="ptag">Tool</span>
-      <span class="ptag">Tool</span>
-    </div>
-  </div>
-
-  <div class="personal-card placeholder">
-    <div class="pc-number">05</div>
-    <p class="pc-status">Coming soon</p>
-    <h3 class="pc-title">Project title</h3>
-    <p class="pc-desc">Replace this with a short description of what you're building and what problem it solves.</p>
-    <div class="pc-tags">
-      <span class="ptag">Tool</span>
-      <span class="ptag">Tool</span>
-    </div>
-  </div>
-
-</div>
-```
-
-  </div>
 
   <!-- WORK PROJECTS -->
-
   <div class="portfolio-block">
     <div class="work-header">
       <h2 class="work-title">Work projects</h2>
@@ -1236,150 +1240,147 @@ footer p { font-size: 0.7rem; color: rgba(255,255,255,0.18); letter-spacing: 0.0
     </div>
     <p class="portfolio-block-desc">Projects built on the job, for employers and clients. No live links — most live behind internal systems or client accounts.</p>
 
-```
-<div class="project-list">
+    <div class="project-list">
 
-  <div class="project-row" data-type="dataviz">
-    <div class="proj-thumb">
-      <div class="proj-thumb-inner" style="background:#1a130a;">
-        <img src="https://tile.loc.gov/image-services/iiif/service:gmd:gmd370:g3701:g3701p:rr000950/full/800,/0/default.jpg" alt="Colton 1883 railroad and geographic map" style="opacity:0.45; mix-blend-mode:luminosity;">
-      </div>
-    </div>
-    <div class="proj-body">
-      <div>
-        <p class="proj-type">Remote Sensing · Data Visualization</p>
-        <h3 class="proj-title">Fire &amp; Aerosol Trends<br>in Indonesia</h3>
-        <p class="proj-desc">Ten years of fire and aerosol data across Indonesia, processed in Google Earth Engine. The challenge wasn't the analysis. It was distilling satellite-derived environmental trends into something a regional policy team could actually use. Built for EcoHealth Alliance.</p>
-      </div>
-      <div class="proj-footer">
-        <div class="proj-tags">
-          <span class="ptag">Google Earth Engine</span>
-          <span class="ptag">JavaScript</span>
-          <span class="ptag">Remote sensing</span>
+      <div class="project-row" data-type="dataviz">
+        <div class="proj-thumb">
+          <div class="proj-thumb-inner" style="background:#1a130a;">
+            <img src="https://tile.loc.gov/image-services/iiif/service:gmd:gmd370:g3701:g3701p:rr000950/full/800,/0/default.jpg" alt="Colton 1883 railroad and geographic map" style="opacity:0.45; mix-blend-mode:luminosity;">
+          </div>
+        </div>
+        <div class="proj-body">
+          <div>
+            <p class="proj-type">Remote Sensing · Data Visualization</p>
+            <h3 class="proj-title">Fire &amp; Aerosol Trends<br>in Indonesia</h3>
+            <p class="proj-desc">Ten years of fire and aerosol data across Indonesia, processed in Google Earth Engine. The challenge wasn't the analysis. It was distilling satellite-derived environmental trends into something a regional policy team could actually use. Built for EcoHealth Alliance.</p>
+          </div>
+          <div class="proj-footer">
+            <div class="proj-tags">
+              <span class="ptag">Google Earth Engine</span>
+              <span class="ptag">JavaScript</span>
+              <span class="ptag">Remote sensing</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="project-row" data-type="dataviz">
-    <div class="proj-thumb">
-      <div class="proj-thumb-inner" style="background:#0c1520;">
-        <img src="https://tile.loc.gov/image-services/iiif/service:gmd:gmd388m:g3880m:g3880m:gcwh0001:ca000038/full/800,/0/default.jpg" alt="Vintage geographic chart" style="opacity:0.45; mix-blend-mode:luminosity;">
-      </div>
-    </div>
-    <div class="proj-body">
-      <div>
-        <p class="proj-type">Dashboard · Workflow Automation</p>
-        <h3 class="proj-title">BIM Compliance<br>Tracking Dashboard</h3>
-        <p class="proj-desc">The ask: project managers needed to track BIM compliance across a portfolio of federal building projects without touching raw data. Power BI dashboards with location-based filtering, automated via Power Automate. Cut manual reporting work by 40%. Built at NIBS.</p>
-      </div>
-      <div class="proj-footer">
-        <div class="proj-tags">
-          <span class="ptag">Power BI</span>
-          <span class="ptag">Power Automate</span>
-          <span class="ptag">ArcGIS Online</span>
+      <div class="project-row" data-type="dataviz">
+        <div class="proj-thumb">
+          <div class="proj-thumb-inner" style="background:#0c1520;">
+            <img src="https://tile.loc.gov/image-services/iiif/service:gmd:gmd388m:g3880m:g3880m:gcwh0001:ca000038/full/800,/0/default.jpg" alt="Vintage geographic chart" style="opacity:0.45; mix-blend-mode:luminosity;">
+          </div>
+        </div>
+        <div class="proj-body">
+          <div>
+            <p class="proj-type">Dashboard · Workflow Automation</p>
+            <h3 class="proj-title">BIM Compliance<br>Tracking Dashboard</h3>
+            <p class="proj-desc">The ask: project managers needed to track BIM compliance across a portfolio of federal building projects without touching raw data. Power BI dashboards with location-based filtering, automated via Power Automate. Cut manual reporting work by 40%. Built at NIBS.</p>
+          </div>
+          <div class="proj-footer">
+            <div class="proj-tags">
+              <span class="ptag">Power BI</span>
+              <span class="ptag">Power Automate</span>
+              <span class="ptag">ArcGIS Online</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="project-row" data-type="static">
-    <div class="proj-thumb">
-      <div class="proj-thumb-inner" style="background:#101820;">
-        <img src="https://tile.loc.gov/image-services/iiif/service:gmd:gmd385:g3840:g3840:ct000793/full/800,/0/default.jpg" alt="1841 Map of Maryland" style="opacity:0.45; mix-blend-mode:luminosity;">
-      </div>
-    </div>
-    <div class="proj-body">
-      <div>
-        <p class="proj-type">Remote Sensing · QA/QC</p>
-        <h3 class="proj-title">Satellite Imagery<br>Mosaic Validation</h3>
-        <p class="proj-desc">QA/QC on satellite imagery mosaics at Maxar: integrating ground control points, checking spatial accuracy, and testing internal processing software before it went anywhere near production. All of it running out of AWS.</p>
-      </div>
-      <div class="proj-footer">
-        <div class="proj-tags">
-          <span class="ptag">DigitalGlobe / Maxar</span>
-          <span class="ptag">AWS (S3, EC2)</span>
-          <span class="ptag">QA/QC</span>
+      <div class="project-row" data-type="static">
+        <div class="proj-thumb">
+          <div class="proj-thumb-inner" style="background:#101820;">
+            <img src="https://tile.loc.gov/image-services/iiif/service:gmd:gmd385:g3840:g3840:ct000793/full/800,/0/default.jpg" alt="1841 Map of Maryland" style="opacity:0.45; mix-blend-mode:luminosity;">
+          </div>
+        </div>
+        <div class="proj-body">
+          <div>
+            <p class="proj-type">Remote Sensing · QA/QC</p>
+            <h3 class="proj-title">Satellite Imagery<br>Mosaic Validation</h3>
+            <p class="proj-desc">QA/QC on satellite imagery mosaics at Maxar: integrating ground control points, checking spatial accuracy, and testing internal processing software before it went anywhere near production. All of it running out of AWS.</p>
+          </div>
+          <div class="proj-footer">
+            <div class="proj-tags">
+              <span class="ptag">DigitalGlobe / Maxar</span>
+              <span class="ptag">AWS (S3, EC2)</span>
+              <span class="ptag">QA/QC</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="project-row" data-type="storymap">
-    <div class="proj-thumb">
-      <div class="proj-thumb-inner" style="background:#120a0a;">
-        <img src="https://tile.loc.gov/image-services/iiif/service:gmd:gmd385:g3840:g3840:ct000307/full/800,/0/default.jpg" alt="1794 Griffith Map of Maryland and Delaware" style="opacity:0.45; mix-blend-mode:luminosity;">
-      </div>
-    </div>
-    <div class="proj-body">
-      <div>
-        <p class="proj-type">Public Health · Spatial Analysis</p>
-        <h3 class="proj-title">Opioid Overdose<br>Mapping, Maryland</h3>
-        <p class="proj-desc">Mapped overdose data across Maryland for the state Department of Health's Office of Overdose Prevention. Choropleth maps, point data, shapefiles, built to be loaded into ArcGIS Server so the team could keep using them after I was gone.</p>
-      </div>
-      <div class="proj-footer">
-        <div class="proj-tags">
-          <span class="ptag">ArcGIS Pro</span>
-          <span class="ptag">ArcGIS Server</span>
-          <span class="ptag">Public health GIS</span>
+      <div class="project-row" data-type="storymap">
+        <div class="proj-thumb">
+          <div class="proj-thumb-inner" style="background:#120a0a;">
+            <img src="https://tile.loc.gov/image-services/iiif/service:gmd:gmd385:g3840:g3840:ct000307/full/800,/0/default.jpg" alt="1794 Griffith Map of Maryland and Delaware" style="opacity:0.45; mix-blend-mode:luminosity;">
+          </div>
+        </div>
+        <div class="proj-body">
+          <div>
+            <p class="proj-type">Public Health · Spatial Analysis</p>
+            <h3 class="proj-title">Opioid Overdose<br>Mapping, Maryland</h3>
+            <p class="proj-desc">Mapped overdose data across Maryland for the state Department of Health's Office of Overdose Prevention. Choropleth maps, point data, shapefiles, built to be loaded into ArcGIS Server so the team could keep using them after I was gone.</p>
+          </div>
+          <div class="proj-footer">
+            <div class="proj-tags">
+              <span class="ptag">ArcGIS Pro</span>
+              <span class="ptag">ArcGIS Server</span>
+              <span class="ptag">Public health GIS</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="project-row" data-type="interactive">
-    <div class="proj-thumb">
-      <div class="proj-thumb-inner" style="background:#0a0e18;">
-        <img src="https://tile.loc.gov/image-services/iiif/service:gmd:gmd385:g3840:g3840:cw0241500/full/800,/0/default.jpg" alt="Civil War map of Baltimore and Washington 1861" style="opacity:0.45; mix-blend-mode:luminosity;">
-      </div>
-    </div>
-    <div class="proj-body">
-      <div>
-        <p class="proj-type">Spatial Analysis · Research</p>
-        <h3 class="proj-title">Broadband Coverage &amp;<br>Economic Growth</h3>
-        <p class="proj-desc">Where does broadband infrastructure actually exist, and does it track with economic outcomes? ArcGIS analysis layered against Census data at the University of Baltimore. The gaps were more visible spatially than any table could show.</p>
-      </div>
-      <div class="proj-footer">
-        <div class="proj-tags">
-          <span class="ptag">ArcGIS</span>
-          <span class="ptag">Census data</span>
-          <span class="ptag">Spatial statistics</span>
+      <div class="project-row" data-type="interactive">
+        <div class="proj-thumb">
+          <div class="proj-thumb-inner" style="background:#0a0e18;">
+            <img src="https://tile.loc.gov/image-services/iiif/service:gmd:gmd385:g3840:g3840:cw0241500/full/800,/0/default.jpg" alt="Civil War map of Baltimore and Washington 1861" style="opacity:0.45; mix-blend-mode:luminosity;">
+          </div>
+        </div>
+        <div class="proj-body">
+          <div>
+            <p class="proj-type">Spatial Analysis · Research</p>
+            <h3 class="proj-title">Broadband Coverage &amp;<br>Economic Growth</h3>
+            <p class="proj-desc">Where does broadband infrastructure actually exist, and does it track with economic outcomes? ArcGIS analysis layered against Census data at the University of Baltimore. The gaps were more visible spatially than any table could show.</p>
+          </div>
+          <div class="proj-footer">
+            <div class="proj-tags">
+              <span class="ptag">ArcGIS</span>
+              <span class="ptag">Census data</span>
+              <span class="ptag">Spatial statistics</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="project-row" data-type="dataviz">
-    <div class="proj-thumb">
-      <div class="proj-thumb-inner" style="background:#0a1410;">
-        <img src="https://tile.loc.gov/image-services/iiif/service:gmd:gmd385:g3840:g3840:cw0244000/full/800,/0/default.jpg" alt="Map of Maryland Campaign 1862" style="opacity:0.45; mix-blend-mode:luminosity;">
-      </div>
-    </div>
-    <div class="proj-body">
-      <div>
-        <p class="proj-type">Automation · Environmental GIS</p>
-        <h3 class="proj-title">Stormwater &amp; Dam Safety<br>Compliance Reporting</h3>
-        <p class="proj-desc">Maryland's Stormwater and Dam Safety programs run on GIS data that someone has to keep clean. I automated the query side with ArcPy, kept the geodatabases in order, went out on field inspections, and turned it all into compliance reports for state regs.</p>
-      </div>
-      <div class="proj-footer">
-        <div class="proj-tags">
-          <span class="ptag">Python / ArcPy</span>
-          <span class="ptag">ArcGIS Pro</span>
-          <span class="ptag">Environmental GIS</span>
+      <div class="project-row" data-type="dataviz">
+        <div class="proj-thumb">
+          <div class="proj-thumb-inner" style="background:#0a1410;">
+            <img src="https://tile.loc.gov/image-services/iiif/service:gmd:gmd385:g3840:g3840:cw0244000/full/800,/0/default.jpg" alt="Map of Maryland Campaign 1862" style="opacity:0.45; mix-blend-mode:luminosity;">
+          </div>
+        </div>
+        <div class="proj-body">
+          <div>
+            <p class="proj-type">Automation · Environmental GIS</p>
+            <h3 class="proj-title">Stormwater &amp; Dam Safety<br>Compliance Reporting</h3>
+            <p class="proj-desc">Maryland's Stormwater and Dam Safety programs run on GIS data that someone has to keep clean. I automated the query side with ArcPy, kept the geodatabases in order, went out on field inspections, and turned it all into compliance reports for state regs.</p>
+          </div>
+          <div class="proj-footer">
+            <div class="proj-tags">
+              <span class="ptag">Python / ArcPy</span>
+              <span class="ptag">ArcGIS Pro</span>
+              <span class="ptag">Environmental GIS</span>
+            </div>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 
-</div>
-```
-
-  </div>
 
 </section>
 
 <!-- CONTACT -->
-
 <section id="contact">
   <div class="contact-left">
     <h2 class="contact-heading">Let's work<br>on something<br><em>worth making.</em></h2>
