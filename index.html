@@ -155,7 +155,7 @@
       font-size: 1rem;
       font-weight: 400;
       color: rgba(255,255,255,0.55);
-      max-width: 460px;
+      max-width: min(460px, 100%);
       line-height: 1.8;
     }
 
@@ -204,7 +204,7 @@
     #intro {
       background: var(--ink);
       color: white;
-      padding: 5rem 2.5rem;
+      padding: clamp(3rem, 6vw, 5rem) 2.5rem;
       display: grid;
       grid-template-columns: 1fr 2.2fr;
       gap: 4rem;
@@ -353,7 +353,7 @@
     #portfolio { padding: 0; }
 
     .portfolio-block {
-      padding: 5rem 2.5rem;
+      padding: clamp(3rem, 6vw, 5rem) 2.5rem;
       background: var(--bg);
     }
 
@@ -443,10 +443,6 @@
       .personal-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
-    @media (max-width: 540px) {
-      .personal-grid { grid-template-columns: 1fr; }
-      .portfolio-block { padding: 3rem 1.25rem; }
-    }
 
     .exp-timeline {
       display: flex;
@@ -567,7 +563,7 @@
     }
     #about {
       background: white;
-      padding: 5rem 2.5rem;
+      padding: clamp(3rem, 6vw, 5rem) 2.5rem;
       display: grid;
       grid-template-columns: 4fr 3fr 4fr;
       gap: 3rem;
@@ -654,7 +650,7 @@
     /* ── CONTACT ── */
     #contact {
       background: var(--ink);
-      padding: 6rem 2.5rem;
+      padding: clamp(3rem, 6vw, 6rem) 2.5rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
@@ -726,7 +722,7 @@
     }
 
     #experience {
-      padding: 5rem 2.5rem;
+      padding: clamp(3rem, 6vw, 5rem) 2.5rem;
       background: var(--bg);
       border-bottom: 1px solid var(--rule);
     }
@@ -845,27 +841,105 @@
     }
 
     /* ── RESPONSIVE ── */
+    /* ── RESPONSIVE: TABLET (≤ 1024px) ── */
+    @media (max-width: 1024px) {
+      #about { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      .about-right { grid-column: 1 / -1; }
+      .edu-block { grid-column: 2; grid-row: 1; }
+      .about-left { grid-column: 1; }
+    }
+
+    /* ── RESPONSIVE: LARGE MOBILE / SMALL TABLET (≤ 860px) ── */
     @media (max-width: 860px) {
-      #intro { grid-template-columns: 1fr; gap: 1.5rem; }
+      /* Sections: reduce padding */
+      #intro, #experience, #contact { padding: 3.5rem 2rem; }
+      #about { padding: 3.5rem 2rem; grid-template-columns: 1fr; gap: 2.5rem; }
+      .portfolio-block { padding: 3.5rem 2rem; }
+
+      /* Intro: stack label above text */
+      #intro { grid-template-columns: 1fr; gap: 1rem; }
+
+      /* About photo: cap width so it doesn't go full-column wide */
+      .about-photo-wrap { max-width: 260px; }
+
+      /* About heading: smaller on tablet */
+      .about-heading { font-size: clamp(1.8rem, 5vw, 2.8rem); }
+
+      /* Project rows: stack vertically */
       .project-row,
-      .project-row:nth-child(even) {
-        grid-template-columns: 1fr;
-      }
+      .project-row:nth-child(even) { grid-template-columns: 1fr; }
       .project-row:nth-child(even) .proj-thumb { order: 0; }
       .project-row:nth-child(even) .proj-body  { order: 0; }
       .proj-thumb { aspect-ratio: 16/7; }
-      #about { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-photo-wrap { max-width: 280px; }
-      #contact { grid-template-columns: 1fr; gap: 3rem; }
+
+      /* Personal cards: 2 columns */
+      .personal-grid { grid-template-columns: repeat(2, 1fr); }
+
+      /* Contact: stack */
+      #contact { grid-template-columns: 1fr; gap: 2.5rem; }
+
+      /* Footer: stack */
       footer { flex-direction: column; gap: 0.4rem; text-align: center; }
+
+      /* Experience timeline: tighten */
+      .exp-item { padding-bottom: 2.25rem; }
     }
 
-    @media (max-width: 560px) {
+    /* ── RESPONSIVE: MOBILE (≤ 640px) ── */
+    @media (max-width: 640px) {
+      /* Nav */
       nav { padding: 1rem 1.25rem; }
-      #hero, #experience, #portfolio, #about, #contact, #intro, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
       .nav-right a:not(.nav-cta) { display: none; }
-      .hero-inner { grid-template-columns: 1fr; }
+
+      /* Hero: single column, hide constellation, reduce font */
+      #hero { padding: 7rem 1.25rem 2.5rem; min-height: 520px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 1rem; }
       .hero-constellation { display: none; }
+      .hero-h1 { font-size: clamp(2.2rem, 10vw, 3.5rem); }
+      .hero-sub { font-size: 0.9rem; max-width: 100%; }
+      .hero-bottom { margin-top: 1.5rem; padding-top: 1rem; }
+      .hero-coords { display: none; }
+
+      /* All sections: tighter side padding */
+      #intro, #experience, #about, #contact, #portfolio, footer {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+      .portfolio-block { padding-left: 1.25rem; padding-right: 1.25rem; }
+
+      /* Intro text: smaller */
+      .intro-text { font-size: clamp(1.15rem, 4.5vw, 1.5rem); }
+
+      /* About: single column, photo full-width capped */
+      #about { padding: 3rem 1.25rem; gap: 2rem; }
+      .about-photo-wrap { max-width: 200px; aspect-ratio: 1/1; }
+      .about-heading { font-size: clamp(1.6rem, 7vw, 2.2rem); margin-bottom: 1rem; }
+      .about-body { font-size: 0.9rem; }
+
+      /* Experience timeline: hide date column, spine flush left */
+      .exp-timeline::before { left: 0; }
+      .exp-item { grid-template-columns: 18px 1fr; gap: 0 1rem; padding-bottom: 2rem; }
+      .exp-left { display: none; }
+      .exp-role { font-size: 0.95rem; }
+      .exp-bullets li { font-size: 0.82rem; }
+
+      /* Portfolio cards: single column */
+      .personal-grid { grid-template-columns: 1fr; }
+
+      /* Contact */
+      #contact { padding: 3rem 1.25rem; }
+      .contact-heading { font-size: clamp(1.8rem, 8vw, 2.8rem); }
+
+      /* Work header */
+      .work-title { font-size: clamp(1.4rem, 5vw, 2rem); }
+    }
+
+    /* ── RESPONSIVE: SMALL PHONE (≤ 380px) ── */
+    @media (max-width: 380px) {
+      #hero { padding-top: 6rem; }
+      .hero-h1 { font-size: 2rem; }
+      .nav-cta { display: none; }
+      .contact-heading { font-size: 1.8rem; }
     }
   </style>
 </head>
