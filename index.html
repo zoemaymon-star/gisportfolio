@@ -82,7 +82,6 @@
       min-height: 580px;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
       padding: 6rem 2.5rem 3.5rem;
       overflow: hidden;
       background-color: #0f1a10;
@@ -90,6 +89,32 @@
         radial-gradient(ellipse at 70% 40%, rgba(16,60,25,0.8) 0%, transparent 60%),
         radial-gradient(ellipse at 20% 80%, rgba(8,25,40,0.9) 0%, transparent 55%),
         radial-gradient(ellipse at 50% 50%, rgba(5,15,8,1) 0%, transparent 100%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: end;
+      flex: 1;
+    }
+
+    .hero-content { max-width: 600px; align-self: end; }
+
+    .hero-constellation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      min-height: 340px;
+    }
+
+    #skillCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
     }
 
 
@@ -107,7 +132,7 @@
       z-index: 1;
     }
 
-    .hero-content { position: relative; z-index: 3; max-width: 860px; margin-top: auto; }
+    .hero-content { position: relative; z-index: 3; max-width: 600px; }
 
     .hero-kicker {
       font-size: 0.74rem;
@@ -144,7 +169,8 @@
 
     .hero-bottom {
       position: relative; z-index: 3;
-      margin-top: 3rem;
+      margin-top: 2rem;
+      flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -967,6 +993,8 @@
       nav { padding: 1rem 1.25rem; }
       #hero, #experience, #portfolio, #about, #contact, #intro, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
       .nav-right a:not(.nav-cta) { display: none; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-constellation { display: none; }
     }
   </style>
 </head>
@@ -986,10 +1014,16 @@
 <!-- HERO -->
 <section id="hero">
 
-  <div class="hero-content">
-    <p class="hero-kicker">GIS &amp; Data Analytics Specialist</p>
-    <h1 class="hero-h1">Turning spatial<br>data into<br><em>decisions.</em></h1>
-    <p class="hero-sub">Maps, spatial tools, and automated pipelines, built for people who need to understand where things are happening and why it matters.</p>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <p class="hero-kicker">GIS &amp; Data Analytics Specialist</p>
+      <h1 class="hero-h1">Turning spatial<br>data into<br><em>decisions.</em></h1>
+      <p class="hero-sub">Maps, spatial tools, and automated pipelines, built for people who need to understand where things are happening and why it matters.</p>
+    </div>
+
+    <div class="hero-constellation">
+      <canvas id="skillCanvas"></canvas>
+    </div>
   </div>
 
   <div class="hero-bottom">
@@ -1539,7 +1573,252 @@
 </footer>
 
 <script>
-  // Nav scroll state
+  // ── SKILLS CONSTELLATION ──
+  (function() {
+    const canvas = document.getElementById('skillCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const accent = '#10b981';
+    const dimWhite = 'rgba(255,255,255,0.55)';
+    const lineColor = 'rgba(16,185,129,0.18)';
+    const hubLineColor = 'rgba(16,185,129,0.35)';
+
+    const nodes = [
+      // Hub nodes (categories)
+      { id: 0, label: 'GIS Platforms', hub: true, x: 0, y: 0, vx: 0, vy: 0 },
+      { id: 1, label: 'Programming',   hub: true, x: 0, y: 0, vx: 0, vy: 0 },
+      { id: 2, label: 'Visualization', hub: true, x: 0, y: 0, vx: 0, vy: 0 },
+      { id: 3, label: 'Cloud & Data',  hub: true, x: 0, y: 0, vx: 0, vy: 0 },
+      // GIS Platforms children
+      { id: 4,  label: 'ArcGIS Pro',    hub: false, parent: 0, x: 0, y: 0, vx: 0, vy: 0 },
+      { id: 5,  label: 'QGIS',          hub: false, parent: 0, x: 0, y: 0, vx: 0, vy: 0 },
+      { id: 6,  label: 'GEE',           hub: false, parent: 0, x: 0, y: 0, vx: 0, vy: 0 },
+      { id: 7,  label: 'ArcGIS Online', hub: false, parent: 0, x: 0, y: 0, vx: 0, vy: 0 },
+      { id: 8,  label: 'ENVI',          hub: false, parent: 0, x: 0, y: 0, vx: 0, vy: 0 },
+      // Programming children
+      { id: 9,  label: 'Python',        hub: false, parent: 1, x: 0, y: 0, vx: 0, vy: 0 },
+      { id: 10, label: 'SQL',           hub: false, parent: 1, x: 0, y: 0, vx: 0, vy: 0 },
+      { id: 11, label: 'ArcPy',         hub: false, parent: 1, x: 0, y: 0, vx: 0, vy: 0 },
+      { id: 12, label: 'JavaScript',    hub: false, parent: 1, x: 0, y: 0, vx: 0, vy: 0 },
+      { id: 13, label: 'R',             hub: false, parent: 1, x: 0, y: 0, vx: 0, vy: 0 },
+      // Visualization children
+      { id: 14, label: 'Power BI',      hub: false, parent: 2, x: 0, y: 0, vx: 0, vy: 0 },
+      { id: 15, label: 'StoryMaps',     hub: false, parent: 2, x: 0, y: 0, vx: 0, vy: 0 },
+      { id: 16, label: 'Dashboards',    hub: false, parent: 2, x: 0, y: 0, vx: 0, vy: 0 },
+      { id: 17, label: 'Matplotlib',    hub: false, parent: 2, x: 0, y: 0, vx: 0, vy: 0 },
+      // Cloud & Data children
+      { id: 18, label: 'AWS',           hub: false, parent: 3, x: 0, y: 0, vx: 0, vy: 0 },
+      { id: 19, label: 'PostGIS',       hub: false, parent: 3, x: 0, y: 0, vx: 0, vy: 0 },
+      { id: 20, label: 'PostgreSQL',    hub: false, parent: 3, x: 0, y: 0, vx: 0, vy: 0 },
+      { id: 21, label: 'Linux',         hub: false, parent: 3, x: 0, y: 0, vx: 0, vy: 0 },
+    ];
+
+    // Cross-links between related skills
+    const crossLinks = [
+      [9, 11],  // Python - ArcPy
+      [10, 19], // SQL - PostGIS
+      [4, 7],   // ArcGIS Pro - ArcGIS Online
+      [6, 9],   // GEE - Python
+      [14, 16], // Power BI - Dashboards
+      [18, 20], // AWS - PostgreSQL
+      [11, 4],  // ArcPy - ArcGIS Pro
+    ];
+
+    let W, H;
+
+    function resize() {
+      const rect = canvas.parentElement.getBoundingClientRect();
+      W = rect.width;
+      H = rect.height;
+      canvas.width = W * window.devicePixelRatio;
+      canvas.height = H * window.devicePixelRatio;
+      canvas.style.width = W + 'px';
+      canvas.style.height = H + 'px';
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      initPositions();
+    }
+
+    function initPositions() {
+      // Place hubs in a loose diamond
+      const cx = W / 2, cy = H / 2, r = Math.min(W, H) * 0.28;
+      const hubAngles = [-Math.PI/2, 0, Math.PI/2, Math.PI];
+      nodes.forEach((n, i) => {
+        if (n.hub) {
+          const a = hubAngles[n.id];
+          n.x = cx + Math.cos(a) * r;
+          n.y = cy + Math.sin(a) * r;
+        }
+      });
+
+      // Place children near their parent hub
+      nodes.forEach(n => {
+        if (!n.hub) {
+          const parent = nodes[n.parent];
+          const angle = Math.random() * Math.PI * 2;
+          const dist = Math.min(W, H) * (0.12 + Math.random() * 0.1);
+          n.x = parent.x + Math.cos(angle) * dist;
+          n.y = parent.y + Math.sin(angle) * dist;
+          n.vx = (Math.random() - 0.5) * 0.3;
+          n.vy = (Math.random() - 0.5) * 0.3;
+        }
+      });
+    }
+
+    function simulate() {
+      const cx = W / 2, cy = H / 2;
+      const damping = 0.92;
+      const childR = Math.min(W, H) * 0.22;
+
+      nodes.forEach(n => {
+        if (n.hub) return;
+        const parent = nodes[n.parent];
+
+        // Spring toward parent
+        const dx = parent.x - n.x;
+        const dy = parent.y - n.y;
+        const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+        const target = childR * 0.55;
+        const force = (dist - target) * 0.018;
+        n.vx += (dx / dist) * force;
+        n.vy += (dy / dist) * force;
+
+        // Repel from other children (same parent)
+        nodes.forEach(m => {
+          if (m === n || m.hub) return;
+          const ex = n.x - m.x, ey = n.y - m.y;
+          const ed = Math.sqrt(ex * ex + ey * ey) || 1;
+          if (ed < 70) {
+            n.vx += (ex / ed) * (70 - ed) * 0.012;
+            n.vy += (ey / ed) * (70 - ed) * 0.012;
+          }
+        });
+
+        // Gentle float
+        n.vx += (Math.random() - 0.5) * 0.04;
+        n.vy += (Math.random() - 0.5) * 0.04;
+
+        n.vx *= damping;
+        n.vy *= damping;
+        n.x += n.vx;
+        n.y += n.vy;
+
+        // Keep within canvas
+        const pad = 40;
+        if (n.x < pad) { n.x = pad; n.vx *= -0.5; }
+        if (n.x > W - pad) { n.x = W - pad; n.vx *= -0.5; }
+        if (n.y < pad) { n.y = pad; n.vy *= -0.5; }
+        if (n.y > H - pad) { n.y = H - pad; n.vy *= -0.5; }
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+
+      // Draw cross-links
+      crossLinks.forEach(([a, b]) => {
+        const na = nodes[a], nb = nodes[b];
+        ctx.beginPath();
+        ctx.moveTo(na.x, na.y);
+        ctx.lineTo(nb.x, nb.y);
+        ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+      });
+
+      // Draw hub-to-child lines
+      nodes.forEach(n => {
+        if (n.hub) return;
+        const parent = nodes[n.parent];
+        ctx.beginPath();
+        ctx.moveTo(parent.x, parent.y);
+        ctx.lineTo(n.x, n.y);
+        ctx.strokeStyle = hubLineColor;
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+      });
+
+      // Draw hub-to-hub lines
+      const hubs = nodes.filter(n => n.hub);
+      for (let i = 0; i < hubs.length; i++) {
+        for (let j = i + 1; j < hubs.length; j++) {
+          ctx.beginPath();
+          ctx.moveTo(hubs[i].x, hubs[i].y);
+          ctx.lineTo(hubs[j].x, hubs[j].y);
+          ctx.strokeStyle = 'rgba(16,185,129,0.12)';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+
+      // Draw child nodes
+      nodes.forEach(n => {
+        if (n.hub) return;
+        // Glow
+        const grd = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, 14);
+        grd.addColorStop(0, 'rgba(16,185,129,0.12)');
+        grd.addColorStop(1, 'transparent');
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, 14, 0, Math.PI * 2);
+        ctx.fillStyle = grd;
+        ctx.fill();
+
+        // Dot
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255,255,255,0.7)';
+        ctx.fill();
+
+        // Label
+        ctx.font = '500 10px "Space Grotesk", sans-serif';
+        ctx.fillStyle = dimWhite;
+        ctx.textAlign = 'center';
+        ctx.fillText(n.label, n.x, n.y + 16);
+      });
+
+      // Draw hub nodes on top
+      nodes.forEach(n => {
+        if (!n.hub) return;
+
+        // Outer glow
+        const grd = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, 28);
+        grd.addColorStop(0, 'rgba(16,185,129,0.25)');
+        grd.addColorStop(1, 'transparent');
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, 28, 0, Math.PI * 2);
+        ctx.fillStyle = grd;
+        ctx.fill();
+
+        // Ring
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, 6, 0, Math.PI * 2);
+        ctx.strokeStyle = accent;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        // Core dot
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, 3.5, 0, Math.PI * 2);
+        ctx.fillStyle = accent;
+        ctx.fill();
+
+        // Label
+        ctx.font = '600 11px "Space Grotesk", sans-serif';
+        ctx.fillStyle = 'rgba(255,255,255,0.9)';
+        ctx.textAlign = 'center';
+        ctx.fillText(n.label, n.x, n.y - 14);
+      });
+    }
+
+    function loop() {
+      simulate();
+      draw();
+      requestAnimationFrame(loop);
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+    loop();
+  })();
   const nav = document.getElementById('main-nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
