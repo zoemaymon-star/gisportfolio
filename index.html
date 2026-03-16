@@ -1667,7 +1667,7 @@
 
     function initPositions() {
       // Place hubs in a loose diamond
-      const cx = W / 2, cy = H / 2, r = Math.min(W, H) * 0.28;
+      const cx = W / 2, cy = H / 2, r = Math.min(W, H) * 0.22;
       const hubAngles = [-Math.PI/2, 0, Math.PI/2, Math.PI];
       nodes.forEach((n, i) => {
         if (n.hub) {
@@ -1682,7 +1682,7 @@
         if (!n.hub) {
           const parent = nodes[n.parent];
           const angle = Math.random() * Math.PI * 2;
-          const dist = Math.min(W, H) * (0.12 + Math.random() * 0.1);
+          const dist = Math.min(W, H) * (0.13 + Math.random() * 0.08);
           n.x = parent.x + Math.cos(angle) * dist;
           n.y = parent.y + Math.sin(angle) * dist;
           n.vx = (Math.random() - 0.5) * 0.3;
@@ -1694,7 +1694,7 @@
     function simulate() {
       const cx = W / 2, cy = H / 2;
       const damping = 0.92;
-      const childR = Math.min(W, H) * 0.22;
+      const childR = Math.min(W, H) * 0.18;
 
       nodes.forEach(n => {
         if (n.hub) return;
@@ -1714,9 +1714,9 @@
           if (m === n || m.hub) return;
           const ex = n.x - m.x, ey = n.y - m.y;
           const ed = Math.sqrt(ex * ex + ey * ey) || 1;
-          if (ed < 70) {
-            n.vx += (ex / ed) * (70 - ed) * 0.012;
-            n.vy += (ey / ed) * (70 - ed) * 0.012;
+          if (ed < 78) {
+            n.vx += (ex / ed) * (78 - ed) * 0.012;
+            n.vy += (ey / ed) * (78 - ed) * 0.012;
           }
         });
 
