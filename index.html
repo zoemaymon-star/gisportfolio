@@ -99,7 +99,7 @@
       min-height: 640px;
       display: flex;
       flex-direction: column;
-      padding: 8rem 2.5rem 3.5rem;
+      padding: 8rem 2.5rem 5rem;
       overflow: clip;
       background-color: #111312;
       background-image:
@@ -932,7 +932,7 @@
       .nav-right a:not(.nav-cta) { display: none; }
 
       /* Hero: single column, hide constellation, reduce font */
-      #hero { padding: 7rem 1.25rem 2rem; min-height: 520px; }
+      #hero { padding: 7rem 1.25rem 3.5rem; min-height: 520px; }
       .hero-inner { grid-template-columns: 1fr; gap: 1rem; }
       .hero-constellation { display: none; }
       .hero-h1 { font-size: clamp(2.2rem, 10vw, 3.5rem); }
@@ -983,7 +983,7 @@
 
     /* ── TABLET PORTRAIT (iPad, 641px–1024px) ── */
     @media (min-width: 641px) and (max-width: 1024px) and (orientation: portrait) {
-      #hero { padding: 7rem 3rem 2.5rem; }
+      #hero { padding: 7rem 3rem 4rem; }
       .hero-inner { grid-template-columns: 1fr; gap: 1.5rem; }
       .hero-constellation { display: none; }
       .hero-h1 { font-size: clamp(3rem, 7vw, 4.5rem); }
@@ -993,7 +993,7 @@
 
     /* ── LANDSCAPE PHONE ── */
     @media (max-height: 500px) and (orientation: landscape) {
-      #hero { padding: 5rem 2.5rem 1.5rem; min-height: unset; height: auto; }
+      #hero { padding: 5rem 2.5rem 3rem; min-height: unset; height: auto; }
       .hero-h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); }
       .hero-sub { font-size: 0.85rem; margin-top: 0.75rem; }
       .hero-constellation { display: none; }
@@ -1001,7 +1001,7 @@
 
     /* ── SHORT WINDOWS (wide but short — laptops at low height) ── */
     @media (max-height: 700px) and (min-width: 1025px) {
-      #hero { padding-top: 6rem; padding-bottom: 2rem; }
+      #hero { padding-top: 6rem; padding-bottom: 4rem; }
       .hero-h1 { font-size: clamp(2.4rem, 4vw, 4rem); }
       .hero-sub { margin-top: 1rem; font-size: 0.95rem; }
     }
