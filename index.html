@@ -87,10 +87,11 @@
     .nav-cta {
       padding: 0.45rem 1.1rem;
       border: 1px solid rgba(255,255,255,0.3);
-      color: white !important;
+      color: white;
     }
     nav.scrolled .nav-cta { border-color: var(--ink); color: var(--ink) !important; }
-    .nav-cta:hover { background: var(--accent) !important; border-color: var(--accent) !important; color: #000 !important; }
+    .nav-cta:hover,
+    nav:not(.scrolled) .nav-cta:hover { background: var(--accent) !important; border-color: var(--accent) !important; color: #000 !important; }
 
     /* ── HERO ── */
     #hero {
