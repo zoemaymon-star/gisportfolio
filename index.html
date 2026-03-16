@@ -116,7 +116,7 @@
       align-items: center;
       justify-content: center;
       height: 100%;
-      min-height: 340px;
+      min-height: 460px;
     }
 
     #skillCanvas {
@@ -1667,7 +1667,7 @@
 
     function initPositions() {
       // Place hubs in a loose diamond
-      const cx = W / 2, cy = H / 2, r = Math.min(W, H) * 0.22;
+      const cx = W / 2, cy = H / 2, r = Math.min(W, H) * 0.27;
       const hubAngles = [-Math.PI/2, 0, Math.PI/2, Math.PI];
       nodes.forEach((n, i) => {
         if (n.hub) {
@@ -1682,7 +1682,7 @@
         if (!n.hub) {
           const parent = nodes[n.parent];
           const angle = Math.random() * Math.PI * 2;
-          const dist = Math.min(W, H) * (0.13 + Math.random() * 0.08);
+          const dist = Math.min(W, H) * (0.15 + Math.random() * 0.09);
           n.x = parent.x + Math.cos(angle) * dist;
           n.y = parent.y + Math.sin(angle) * dist;
           n.vx = (Math.random() - 0.5) * 0.3;
@@ -1694,7 +1694,7 @@
     function simulate() {
       const cx = W / 2, cy = H / 2;
       const damping = 0.92;
-      const childR = Math.min(W, H) * 0.18;
+      const childR = Math.min(W, H) * 0.21;
 
       nodes.forEach(n => {
         if (n.hub) return;
@@ -1796,7 +1796,7 @@
         ctx.fill();
 
         // Label
-        ctx.font = '500 10px "Space Grotesk", sans-serif';
+        ctx.font = '500 11.5px "Space Grotesk", sans-serif';
         ctx.fillStyle = dimWhite;
         ctx.textAlign = 'center';
         ctx.fillText(n.label, n.x, n.y + 16);
@@ -1829,7 +1829,7 @@
         ctx.fill();
 
         // Label
-        ctx.font = '600 11px "Space Grotesk", sans-serif';
+        ctx.font = '600 13px "Space Grotesk", sans-serif';
         ctx.fillStyle = 'rgba(255,255,255,0.9)';
         ctx.textAlign = 'center';
         ctx.fillText(n.label, n.x, n.y - 14);
