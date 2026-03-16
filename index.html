@@ -141,7 +141,15 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-coords {
+      font-size: 0.68rem;
+      letter-spacing: 0.07em;
+      color: rgba(255,255,255,0.25);
+      margin-top: 0;
+      margin-bottom: 1.4rem;
     }
 
     .hero-h1 {
@@ -175,7 +183,7 @@
       flex-shrink: 0;
       display: flex;
       align-items: flex-end;
-      justify-content: space-between;
+      justify-content: center;
     }
 
     .hero-scroll {
@@ -183,20 +191,19 @@
       flex-direction: column;
       align-items: center;
       gap: 0.6rem;
+    }
+
+    .scroll-label {
       font-size: 0.65rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.3);
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-      transform: rotate(180deg);
     }
 
     .scroll-line {
       width: 1px; height: 44px;
       background: rgba(255,255,255,0.15);
       position: relative; overflow: hidden;
-      transform: rotate(180deg);
     }
     .scroll-line::after {
       content: '';
@@ -207,11 +214,6 @@
     }
     @keyframes scan { 0%{top:-100%} 100%{top:100%} }
 
-    .hero-coords {
-      font-size: 0.68rem;
-      letter-spacing: 0.07em;
-      color: rgba(255,255,255,0.25);
-    }
 
     /* ── INTRO STRIP ── */
     #intro {
@@ -1033,6 +1035,7 @@
   <div class="hero-inner">
     <div class="hero-content">
       <p class="hero-kicker">GIS &amp; Data Analytics Specialist</p>
+      <p class="hero-coords">38.9°N &nbsp;76.9°W &nbsp;·&nbsp; Hyattsville, Maryland</p>
       <h1 class="hero-h1">Turning spatial<br>data into<br><em>decisions.</em></h1>
       <p class="hero-sub">Maps, spatial tools, and automated pipelines for state and federal teams, environmental orgs, and public health organizations that need geospatial insight without having to dig through the data themselves.</p>
     </div>
@@ -1045,9 +1048,8 @@
   <div class="hero-bottom">
     <div class="hero-scroll">
       <div class="scroll-line"></div>
-      Scroll to explore
+      <span class="scroll-label">Scroll to explore</span>
     </div>
-    <div class="hero-coords">38.9°N &nbsp;76.9°W &nbsp;·&nbsp; Hyattsville, Maryland</div>
   </div>
 </section>
 
