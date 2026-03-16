@@ -898,7 +898,7 @@
     /* ── RESPONSIVE ── */
     /* ── RESPONSIVE: TABLET (≤ 1024px) ── */
     @media (max-width: 1024px) {
-      #about { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      #about { grid-template-columns: 1fr 1fr; gap: 2rem; }
       .about-left  { grid-column: 1; grid-row: 1; }
       .about-bio   { grid-column: 2; grid-row: 1; }
       .edu-block   { grid-column: 1; grid-row: 2; }
@@ -908,17 +908,17 @@
     /* ── RESPONSIVE: LARGE MOBILE / SMALL TABLET (≤ 860px) ── */
     @media (max-width: 860px) {
       /* Sections: reduce padding */
-      #intro, #experience, #contact { padding: 2.5rem 2rem; }
-      #about { padding: 2.5rem 2rem; grid-template-columns: 1fr; gap: 2rem; }
+      #intro, #experience, #contact { padding: 2rem 1.75rem; }
+      #about { padding: 2rem 1.75rem; grid-template-columns: 1fr; gap: 1.75rem; }
       .about-bio, .edu-block, .about-right { grid-column: 1; }
-      .portfolio-block { padding: 2.5rem 2rem; }
+      .portfolio-block { padding: 2rem 1.75rem; }
 
       /* Intro: stack label above text */
       #intro { grid-template-columns: 1fr; gap: 0.75rem; }
       .intro-label { padding-top: 0; }
 
       /* About photo: cap width so it doesn't go full-column wide */
-      .about-photo-wrap { max-width: 260px; }
+      .about-photo-wrap { max-width: 240px; }
 
       /* About heading: smaller on tablet */
       .about-heading { font-size: clamp(1.8rem, 5vw, 2.8rem); }
@@ -934,13 +934,13 @@
       .personal-grid { grid-template-columns: repeat(2, 1fr); }
 
       /* Contact: stack */
-      #contact { grid-template-columns: 1fr; gap: 2.5rem; }
+      #contact { grid-template-columns: 1fr; gap: 2rem; }
 
       /* Footer: stack */
       footer { flex-direction: column; gap: 0.4rem; text-align: center; }
 
-      /* Experience timeline: tighten */
-      .exp-item { padding-bottom: 2.25rem; }
+      /* Experience timeline: match base */
+      .exp-item { padding-bottom: 1.75rem; }
     }
 
     /* ── RESPONSIVE: MOBILE (≤ 640px) ── */
@@ -950,7 +950,7 @@
       .nav-right a:not(.nav-cta) { display: none; }
 
       /* Hero: single column, hide constellation, reduce font */
-      #hero { padding: 7rem 1.25rem 2.5rem; min-height: 520px; }
+      #hero { padding: 7rem 1.25rem 2rem; min-height: 520px; }
       .hero-inner { grid-template-columns: 1fr; gap: 1rem; }
       .hero-constellation { display: none; }
       .hero-h1 { font-size: clamp(2.2rem, 10vw, 3.5rem); }
@@ -968,15 +968,15 @@
       /* Intro text: smaller */
       .intro-text { font-size: clamp(1.15rem, 4.5vw, 1.5rem); }
 
-      /* About: single column, photo full-width capped */
-      #about { padding: 3rem 1.25rem; gap: 1.75rem; }
-      .about-photo-wrap { aspect-ratio: 4 / 3; }
-      .about-heading { font-size: clamp(1.6rem, 7vw, 2.2rem); margin-bottom: 1rem; }
+      /* About: single column */
+      #about { padding: 2rem 1.25rem; gap: 1.5rem; }
+      .about-photo-wrap { aspect-ratio: 4 / 3; max-width: 100%; }
+      .about-heading { font-size: clamp(1.6rem, 7vw, 2.2rem); margin-bottom: 0.75rem; }
       .about-body { font-size: 0.9rem; }
 
       /* Experience timeline: hide date column, spine flush left */
       .exp-timeline::before { left: 0; }
-      .exp-item { grid-template-columns: 18px 1fr; gap: 0 1rem; padding-bottom: 2rem; }
+      .exp-item { grid-template-columns: 18px 1fr; gap: 0 1rem; padding-bottom: 1.75rem; }
       .exp-left { display: none; }
       .exp-role { font-size: 0.95rem; }
       .exp-bullets li { font-size: 0.82rem; }
@@ -985,7 +985,7 @@
       .personal-grid { grid-template-columns: 1fr; }
 
       /* Contact */
-      #contact { padding: 3rem 1.25rem; }
+      #contact { padding: 2rem 1.25rem; }
       .contact-heading { font-size: clamp(1.8rem, 8vw, 2.8rem); }
 
       /* Work header */
@@ -1002,22 +1002,11 @@
 
     /* ── TABLET PORTRAIT (iPad, 641px–1024px) ── */
     @media (min-width: 641px) and (max-width: 1024px) and (orientation: portrait) {
-      #hero { padding: 7rem 3rem 3rem; }
+      #hero { padding: 7rem 3rem 2.5rem; }
       .hero-inner { grid-template-columns: 1fr; gap: 1.5rem; }
       .hero-constellation { display: none; }
       .hero-h1 { font-size: clamp(3rem, 7vw, 4.5rem); }
       .hero-sub { max-width: 100%; font-size: 1rem; }
-
-      #about {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto;
-        gap: 2rem;
-      }
-      .about-left { grid-column: 1; grid-row: 1; }
-      .about-bio  { grid-column: 2; grid-row: 1; }
-      .edu-block  { grid-column: 1; grid-row: 2; }
-      .about-right { grid-column: 2; grid-row: 2; }
-
       .personal-grid { grid-template-columns: 1fr 1fr; }
     }
 
